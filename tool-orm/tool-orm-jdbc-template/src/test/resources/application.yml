@@ -1,0 +1,31 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /
+  address: 127.0.0.1
+
+datasource:
+  cloud:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url:  jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+    maxWait: 60000
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+
+logging:
+  filepath: logs
+  maxhistory: 50
+  maxfilesize: 64MB
+  logback:
+    level: debug
+  charset: UTF-8
+  all:
+    filename: orm-jdbc-all
+  error:
+    filename: orm-jdbc-error
+  config: classpath:logback-spring.xml
+

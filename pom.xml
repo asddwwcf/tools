@@ -12,6 +12,7 @@
 
     <modules>
         <module>tool-poi</module>
+        <module>tool-orm</module>
     </modules>
 
     <properties>

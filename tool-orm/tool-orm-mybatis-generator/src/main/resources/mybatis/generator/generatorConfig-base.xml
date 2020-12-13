@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="src/main/resources/mybatis/mysql-connector-java-5.1.21.jar"/>
+
+    <context id="Mysql2Tables" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+        <!--覆盖生成XML文件-->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
+        <!--单条查询插件-->
+        <plugin type="com.itfsw.mybatis.generator.plugins.SelectOneByExamplePlugin"/>
+        <!-- 数据Model链式构建插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ModelBuilderPlugin"/>
+        <!-- Example Criteria 增强插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin">
+            <!-- 是否支持已经过时的andIf方法（推荐使用when代替），默认支持 -->
+            <property name="enableAndIf" value="true"/>
+        </plugin>
+        <!-- 数据Model属性对应Column获取插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"/>
+        <!-- 批量插入插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin">
+            <!-- 开启后可以实现官方插件根据属性是否为空决定是否插入该字段功能，默认不开启 -->
+            <property name="allowMultiQueries" value="false"/>
+        </plugin>
+
+        <commentGenerator type="com.jusfoun.demo.plugin.CommentGenerator">
+            <property name="author" value="admin"/>
+            <property name="dateFormat" value="yyyy/MM/dd"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/demo?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useInformationSchema=true"
+                        userId="root"
+                        password="123456">
+            <!--<property name="useInformationSchema" value="true"></property>-->
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 生成模型的包名和位置 -->
+        <javaModelGenerator targetPackage="com.jusfoun.demo.model" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成xml映射文件的包名和位置 -->
+        <sqlMapGenerator targetPackage="com.jusfoun.demo.mapper" targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 生成mapper的包名和位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.jusfoun.demo.mapper" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="demo" tableName="sys_user" domainObjectName="User"
+               enableCountByExample="false" enableUpdateByExample="true"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

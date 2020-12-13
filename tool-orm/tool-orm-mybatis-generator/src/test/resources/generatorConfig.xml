@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <properties resource="info.properties" />
+
+    <context id="tool" targetRuntime="MyBatis3">
+
+        <plugin type="com.mine.tool.orm.mybatis.generator.plugin.InitPlugin" />
+
+        <!-- 清空所有注释,不阻止后续注释的生成 -->
+        <!--<plugin type="CleanAllCommentPlugin" />-->
+        <!-- 将表字段注释添加到domain类对应的属性上 -->
+
+        <plugin type="com.mine.tool.orm.mybatis.generator.plugin.DomainJavaDocPlugin" />
+        <!-- 屏蔽所有注释,阻止后续注释的生成 -->
+        <plugin type="com.mine.tool.orm.mybatis.generator.plugin.SuppressAllCommentPlugin" />
+        <!-- 增加domain类序列化接口功能 -->
+        <plugin type="com.mine.tool.orm.mybatis.generator.plugin.DomainSerializablePlugin" />
+        <!-- 基于注解的Mapper生成插件 -->
+        <plugin type="com.mine.tool.orm.mybatis.generator.plugin.AnnotationMapperPlugin" />
+        <!-- Example扩展插件-增加likeListValue功能,增加likePrefix,likeSuffix方法 -->
+        <plugin type="com.mine.tool.orm.mybatis.generator.plugin.ExampleExtendPlugin" >
+            <property name="likeListValue" value="true"/>
+        </plugin>
+        <!-- 对domain增加自定义注解的插件-必须配置-否则orm框架无法正常运行 -->
+        <plugin type="com.mine.tool.orm.mybatis.generator.plugin.AnnotationDomainPlugin" />
+        <!-- service接口类生成插件 -->
+        <plugin type="com.mine.tool.orm.mybatis.generator.plugin.ServiceInterfacePlugin">
+            <property name="service.path" value="${service.path}"/>
+            <property name="service.suffix" value="${service.suffix}"/>
+            <property name="service.package" value="${service.package}"/>
+        </plugin>
+        <!-- service实现类生成插件 -->
+        <plugin type="com.mine.tool.orm.mybatis.generator.plugin.ServiceClassPlugin">
+            <property name="service.path" value="${service.path}"/>
+            <property name="service.suffix" value="${service.suffix}"/>
+            <property name="service.package" value="${service.package}"/>
+            <property name="xmlmapper.package" value="${xmlmapper.package}"/>
+        </plugin>
+        <!-- domain字段追加swagger注解 -->
+        <!--<plugin type="SwaggerAnnotationDomainPlugin" />-->
+
+        <jdbcConnection driverClass="${db.driver}" connectionURL="${db.url}" userId="${db.name}" password="${db.pwd}">
+            <property name="useInformationSchema" value="true"/>
+            <property name="remarks" value="true"/>
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="${domain.package}" targetProject="${domain.path}">
+            <property name="enableSubPackages" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="${dao.package}" targetProject="${dao.path}">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${xmlmapper.package}" targetProject="${xmlmapper.path}">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 数据库所有表-自动生成实体类: 不用指定generateKey,代码自动识别. -->
+<!--        <table tableName="%" schema="persimmon" >-->
+<!--            <domainObjectRenamingRule searchString="^Per" replaceString=""/>-->
+<!--        </table>-->
+        <!-- 指定具体的表-自动生成实体类: 不用指定generateKey,代码自动识别 -->
+        <table tableName="coupon_verify_record" domainObjectName="CouponVerifyRecord" />
+        <table tableName="partner_third_match" domainObjectName="PartnerThirdMatch" />
+
+    </context>
+</generatorConfiguration> 
