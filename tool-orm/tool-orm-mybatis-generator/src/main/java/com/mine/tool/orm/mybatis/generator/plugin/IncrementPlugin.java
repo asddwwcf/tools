@@ -16,8 +16,8 @@
 
 package com.mine.tool.orm.mybatis.generator.plugin;
 
-import com.itfsw.mybatis.generator.plugins.utils.*;
-import com.itfsw.mybatis.generator.plugins.utils.hook.IIncrementPluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.*;
+import com.mine.tool.orm.mybatis.generator.utils.hook.IIncrementPluginHook;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.*;
@@ -105,7 +105,7 @@ public class IncrementPlugin extends BasePlugin implements IIncrementPluginHook 
             for (String incrementsColumnsStr : incrementsColumnsStrs) {
                 IntrospectedColumn column = IntrospectedTableTools.safeGetColumn(introspectedTable, incrementsColumnsStr);
                 if (column == null) {
-                    warnings.add("itfsw:插件" + com.itfsw.mybatis.generator.plugins.IncrementPlugin.class.getTypeName() + "插件没有找到column为" + incrementsColumnsStr.trim() + "的字段！");
+                    warnings.add("itfsw:插件" + com.mine.tool.orm.mybatis.generator.plugin.IncrementPlugin.class.getTypeName() + "插件没有找到column为" + incrementsColumnsStr.trim() + "的字段！");
                 } else {
                     incColumns.add(column);
                 }
@@ -291,7 +291,7 @@ public class IncrementPlugin extends BasePlugin implements IIncrementPluginHook 
      * 生成增量操作节点(SelectiveEnhancedPlugin)
      * @param columns
      * @return
-     * @see com.itfsw.mybatis.generator.plugins.SelectiveEnhancedPlugin#generateSetsSelective(List, IntrospectedColumn)
+     * @see com.mine.tool.orm.mybatis.generator.plugin.SelectiveEnhancedPlugin#generateSetsSelective(List, IntrospectedColumn)
      */
     @Override
     public List<XmlElement> generateIncrementSetForSelectiveEnhancedPlugin(List<IntrospectedColumn> columns) {
@@ -430,7 +430,7 @@ public class IncrementPlugin extends BasePlugin implements IIncrementPluginHook 
     private void addIncMethodToTopLevelClass(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         // 增加field
         Field fIncrements = JavaElementGeneratorTools.generateField(
-                com.itfsw.mybatis.generator.plugins.IncrementPlugin.FIELD_INC_MAP,
+                com.mine.tool.orm.mybatis.generator.plugin.IncrementPlugin.FIELD_INC_MAP,
                 JavaVisibility.PROTECTED,
                 new FullyQualifiedJavaType("Map<String, Object>"),
                 "new HashMap<>()"

@@ -16,11 +16,11 @@
 
 package com.mine.tool.orm.mybatis.generator.plugin;
 
-import com.itfsw.mybatis.generator.plugins.utils.*;
-import com.itfsw.mybatis.generator.plugins.utils.hook.IIncrementPluginHook;
-import com.itfsw.mybatis.generator.plugins.utils.hook.IIncrementsPluginHook;
-import com.itfsw.mybatis.generator.plugins.utils.hook.IOptimisticLockerPluginHook;
-import com.itfsw.mybatis.generator.plugins.utils.hook.IUpsertPluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.*;
+import com.mine.tool.orm.mybatis.generator.utils.hook.IIncrementPluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.hook.IIncrementsPluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.hook.IOptimisticLockerPluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.hook.IUpsertPluginHook;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;

@@ -21,8 +21,7 @@ import org.mybatis.generator.api.dom.java.*;
 
 import java.util.Iterator;
 import java.util.Set;
-
-import static org.mybatis.generator.api.dom.OutputUtilities.javaIndent;
+import static org.mybatis.generator.api.dom.OutputUtilities.*;
 import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;
 
 /**

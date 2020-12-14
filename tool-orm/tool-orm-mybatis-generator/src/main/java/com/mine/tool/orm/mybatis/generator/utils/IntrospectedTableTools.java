@@ -16,7 +16,7 @@
 
 package com.mine.tool.orm.mybatis.generator.utils;
 
-import com.itfsw.mybatis.generator.plugins.ExampleTargetPlugin;
+import com.mine.tool.orm.mybatis.generator.plugin.ExampleTargetPlugin;
 import org.mybatis.generator.api.FullyQualifiedTable;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;

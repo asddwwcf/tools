@@ -18,7 +18,7 @@
 
 package com.mine.tool.orm.mybatis.generator.plugin;
 
-import com.itfsw.mybatis.generator.plugins.utils.BasePlugin;
+import com.mine.tool.orm.mybatis.generator.utils.BasePlugin;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.config.Context;
 import org.mybatis.generator.config.JavaModelGeneratorConfiguration;

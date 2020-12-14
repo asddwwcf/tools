@@ -16,11 +16,11 @@
 
 package com.mine.tool.orm.mybatis.generator.plugin;
 
-import com.itfsw.mybatis.generator.plugins.utils.*;
-import com.itfsw.mybatis.generator.plugins.utils.enhanced.SpecTypeArgumentsFullyQualifiedJavaType;
-import com.itfsw.mybatis.generator.plugins.utils.hook.IIncrementsPluginHook;
-import com.itfsw.mybatis.generator.plugins.utils.hook.ILombokPluginHook;
-import com.itfsw.mybatis.generator.plugins.utils.hook.IModelBuilderPluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.*;
+import com.mine.tool.orm.mybatis.generator.utils.enhanced.SpecTypeArgumentsFullyQualifiedJavaType;
+import com.mine.tool.orm.mybatis.generator.utils.hook.IIncrementsPluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.hook.ILombokPluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.hook.IModelBuilderPluginHook;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.*;
@@ -63,8 +63,8 @@ public class IncrementsPlugin extends BasePlugin implements IModelBuilderPluginH
     public boolean validate(List<String> warnings) {
 
         // 插件使用前提是使用了ModelBuilderPlugin插件
-        if (!(PluginTools.checkDependencyPlugin(getContext(), com.itfsw.mybatis.generator.plugins.ModelBuilderPlugin.class) || PluginTools.checkDependencyPlugin(getContext(), LombokPlugin.class))) {
-            warnings.add("itfsw:插件" + this.getClass().getTypeName() + "插件需配合" + com.itfsw.mybatis.generator.plugins.ModelBuilderPlugin.class.getTypeName() + "或者" + LombokPlugin.class.getTypeName() + "插件使用！");
+        if (!(PluginTools.checkDependencyPlugin(getContext(), com.mine.tool.orm.mybatis.generator.plugin.ModelBuilderPlugin.class) || PluginTools.checkDependencyPlugin(getContext(), LombokPlugin.class))) {
+            warnings.add("itfsw:插件" + this.getClass().getTypeName() + "插件需配合" + com.mine.tool.orm.mybatis.generator.plugin.ModelBuilderPlugin.class.getTypeName() + "或者" + LombokPlugin.class.getTypeName() + "插件使用！");
             return false;
         }
 
@@ -88,14 +88,14 @@ public class IncrementsPlugin extends BasePlugin implements IModelBuilderPluginH
         this.incEnum = null;
         this.incEnumBuilder = null;
 
-        String incrementsColumns = introspectedTable.getTableConfigurationProperty(com.itfsw.mybatis.generator.plugins.IncrementsPlugin.PRO_INCREMENTS_COLUMNS);
+        String incrementsColumns = introspectedTable.getTableConfigurationProperty(com.mine.tool.orm.mybatis.generator.plugin.IncrementsPlugin.PRO_INCREMENTS_COLUMNS);
         if (StringUtility.stringHasValue(incrementsColumns)) {
             // 切分
             String[] incrementsColumnsStrs = incrementsColumns.split(",");
             for (String incrementsColumnsStr : incrementsColumnsStrs) {
                 IntrospectedColumn column = IntrospectedTableTools.safeGetColumn(introspectedTable, incrementsColumnsStr);
                 if (column == null) {
-                    warnings.add("itfsw:插件" + com.itfsw.mybatis.generator.plugins.IncrementsPlugin.class.getTypeName() + "插件没有找到column为" + incrementsColumnsStr.trim() + "的字段！");
+                    warnings.add("itfsw:插件" + com.mine.tool.orm.mybatis.generator.plugin.IncrementsPlugin.class.getTypeName() + "插件没有找到column为" + incrementsColumnsStr.trim() + "的字段！");
                 } else {
                     incColumns.add(column);
                 }
@@ -315,7 +315,7 @@ public class IncrementsPlugin extends BasePlugin implements IModelBuilderPluginH
 
                     // Builder 中 添加字段支持
                     Field fIncrements = JavaElementGeneratorTools.generateField(
-                            com.itfsw.mybatis.generator.plugins.IncrementsPlugin.FIELD_INC_MAP,
+                            com.mine.tool.orm.mybatis.generator.plugin.IncrementsPlugin.FIELD_INC_MAP,
                             JavaVisibility.PROTECTED,
                             new FullyQualifiedJavaType("Map<String, " + this.getIncEnum(builderCls, introspectedTable).getFullyQualifiedName() + ">"),
                             "new HashMap<String, " + this.getIncEnum(builderCls, introspectedTable).getFullyQualifiedName() + ">()"
@@ -324,7 +324,7 @@ public class IncrementsPlugin extends BasePlugin implements IModelBuilderPluginH
                     builderCls.addField(fIncrements);
 
                     // Builder 构造函数增加 自增Map
-                    constructor.addBodyLine("this." + com.itfsw.mybatis.generator.plugins.IncrementsPlugin.FIELD_INC_MAP + ".putAll(builder." + com.itfsw.mybatis.generator.plugins.IncrementsPlugin.FIELD_INC_MAP + ");");
+                    constructor.addBodyLine("this." + com.mine.tool.orm.mybatis.generator.plugin.IncrementsPlugin.FIELD_INC_MAP + ".putAll(builder." + com.mine.tool.orm.mybatis.generator.plugin.IncrementsPlugin.FIELD_INC_MAP + ");");
                 }
 
                 FullyQualifiedJavaType builderType2 = new FullyQualifiedJavaType(topLevelClass.getType().getShortName() + "." + topLevelClass.getType().getShortName() + "Builder");
@@ -341,7 +341,7 @@ public class IncrementsPlugin extends BasePlugin implements IModelBuilderPluginH
                                 new Parameter(this.getIncEnum(builderCls, introspectedTable), "inc")
                         );
                         commentGenerator.addSetterComment(mIncrements, introspectedTable, column);
-                        mIncrements.addBodyLine("this." + com.itfsw.mybatis.generator.plugins.IncrementsPlugin.FIELD_INC_MAP + ".put(\"" + column.getActualColumnName() + "\", inc);");
+                        mIncrements.addBodyLine("this." + com.mine.tool.orm.mybatis.generator.plugin.IncrementsPlugin.FIELD_INC_MAP + ".put(\"" + column.getActualColumnName() + "\", inc);");
                         mIncrements.addBodyLine("return this." + field.getName() + "(" + field.getName() + ");");
 
                         FormatTools.addMethodWithBestPosition(builderCls, mIncrements);
@@ -426,7 +426,7 @@ public class IncrementsPlugin extends BasePlugin implements IModelBuilderPluginH
                     commentGenerator.addSetterComment(mIncrements, introspectedTable, column);
 
                     Method setterMethod = JavaBeansUtil.getJavaBeansSetter(column, context, introspectedTable);
-                    mIncrements.addBodyLine("obj." + com.itfsw.mybatis.generator.plugins.IncrementsPlugin.FIELD_INC_MAP + ".put(\"" + column.getActualColumnName() + "\", inc);");
+                    mIncrements.addBodyLine("obj." + com.mine.tool.orm.mybatis.generator.plugin.IncrementsPlugin.FIELD_INC_MAP + ".put(\"" + column.getActualColumnName() + "\", inc);");
                     mIncrements.addBodyLine("obj." + setterMethod.getName() + "(" + field.getName() + ");");
                     mIncrements.addBodyLine("return this;");
 
@@ -476,13 +476,13 @@ public class IncrementsPlugin extends BasePlugin implements IModelBuilderPluginH
             XmlElement when = new XmlElement("when");
             when.addAttribute(new Attribute(
                     "test",
-                    (prefix != null ? prefix : "_parameter.") + com.itfsw.mybatis.generator.plugins.IncrementsPlugin.METHOD_INC_CHECK
+                    (prefix != null ? prefix : "_parameter.") + com.mine.tool.orm.mybatis.generator.plugin.IncrementsPlugin.METHOD_INC_CHECK
                             + "('" + MyBatis3FormattingUtilities.escapeStringForMyBatis3(introspectedColumn.getActualColumnName()) + "')"
             ));
             TextElement spec = new TextElement(
                     MyBatis3FormattingUtilities.getEscapedColumnName(introspectedColumn)
                             + " ${" + (prefix != null ? prefix : "_parameter.")
-                            + com.itfsw.mybatis.generator.plugins.IncrementsPlugin.METHOD_GET_INC_MAP + "()." + MyBatis3FormattingUtilities.escapeStringForMyBatis3(introspectedColumn.getActualColumnName()) + ".value} "
+                            + com.mine.tool.orm.mybatis.generator.plugin.IncrementsPlugin.METHOD_GET_INC_MAP + "()." + MyBatis3FormattingUtilities.escapeStringForMyBatis3(introspectedColumn.getActualColumnName()) + ".value} "
                             + MyBatis3FormattingUtilities.getParameterClause(introspectedColumn, prefix));
             when.addElement(spec);
             choose.addElement(when);
@@ -564,7 +564,7 @@ public class IncrementsPlugin extends BasePlugin implements IModelBuilderPluginH
     private void addIncMethodToTopLevelClass(TopLevelClass topLevelClass, InnerClass builderCls, IntrospectedTable introspectedTable, boolean withLombok) {
         // 增加field
         Field fIncrements = JavaElementGeneratorTools.generateField(
-                com.itfsw.mybatis.generator.plugins.IncrementsPlugin.FIELD_INC_MAP,
+                com.mine.tool.orm.mybatis.generator.plugin.IncrementsPlugin.FIELD_INC_MAP,
                 JavaVisibility.PROTECTED,
                 new FullyQualifiedJavaType("Map<String, " + this.getIncEnum(builderCls, introspectedTable).getFullyQualifiedName() + ">"),
                 "new HashMap<String, " + this.getIncEnum(builderCls, introspectedTable).getFullyQualifiedName() + ">()"
@@ -590,13 +590,13 @@ public class IncrementsPlugin extends BasePlugin implements IModelBuilderPluginH
         }
         // 增加判断方法
         Method mHasIncsForColumn = JavaElementGeneratorTools.generateMethod(
-                com.itfsw.mybatis.generator.plugins.IncrementsPlugin.METHOD_INC_CHECK,
+                com.mine.tool.orm.mybatis.generator.plugin.IncrementsPlugin.METHOD_INC_CHECK,
                 JavaVisibility.PUBLIC,
                 FullyQualifiedJavaType.getBooleanPrimitiveInstance(),
                 new Parameter(FullyQualifiedJavaType.getStringInstance(), "column")
         );
         commentGenerator.addGeneralMethodComment(mHasIncsForColumn, introspectedTable);
-        mHasIncsForColumn.addBodyLine("return " + com.itfsw.mybatis.generator.plugins.IncrementsPlugin.FIELD_INC_MAP + ".get(column) != null;");
+        mHasIncsForColumn.addBodyLine("return " + com.mine.tool.orm.mybatis.generator.plugin.IncrementsPlugin.FIELD_INC_MAP + ".get(column) != null;");
         FormatTools.addMethodWithBestPosition(topLevelClass, mHasIncsForColumn);
     }
 

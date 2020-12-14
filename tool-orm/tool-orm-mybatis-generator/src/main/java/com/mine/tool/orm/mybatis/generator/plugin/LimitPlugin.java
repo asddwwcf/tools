@@ -16,10 +16,10 @@
 
 package com.mine.tool.orm.mybatis.generator.plugin;
 
-import com.itfsw.mybatis.generator.plugins.utils.BasePlugin;
-import com.itfsw.mybatis.generator.plugins.utils.FormatTools;
-import com.itfsw.mybatis.generator.plugins.utils.JavaElementGeneratorTools;
-import com.itfsw.mybatis.generator.plugins.utils.hook.ISelectSelectivePluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.BasePlugin;
+import com.mine.tool.orm.mybatis.generator.utils.FormatTools;
+import com.mine.tool.orm.mybatis.generator.utils.JavaElementGeneratorTools;
+import com.mine.tool.orm.mybatis.generator.utils.hook.ISelectSelectivePluginHook;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.*;
 import org.mybatis.generator.api.dom.xml.Attribute;
@@ -69,7 +69,7 @@ public class LimitPlugin extends BasePlugin implements ISelectSelectivePluginHoo
         super.initialized(introspectedTable);
 
         // 获取配置
-        String startPage = this.getProperties().getProperty(com.itfsw.mybatis.generator.plugins.LimitPlugin.PRO_START_PAGE);
+        String startPage = this.getProperties().getProperty(com.mine.tool.orm.mybatis.generator.plugin.LimitPlugin.PRO_START_PAGE);
         if (StringUtility.stringHasValue(startPage)) {
             this.startPage = Integer.valueOf(startPage);
         } else {

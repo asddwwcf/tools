@@ -16,8 +16,8 @@
 
 package com.mine.tool.orm.mybatis.generator.plugin;
 
-import com.itfsw.mybatis.generator.plugins.utils.*;
-import com.itfsw.mybatis.generator.plugins.utils.hook.ILogicalDeletePluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.*;
+import com.mine.tool.orm.mybatis.generator.utils.hook.ILogicalDeletePluginHook;
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
@@ -70,13 +70,13 @@ public class EnumTypeStatusPlugin extends BasePlugin implements ILogicalDeletePl
         // 是否开启了自动扫描
         if (StringUtility.stringHasValue(autoScan) && !StringUtility.isTrue(autoScan)) {
             // 获取全局配置
-            String enumColumns = this.getProperties().getProperty(com.itfsw.mybatis.generator.plugins.EnumTypeStatusPlugin.PRO_ENUM_COLUMNS);
+            String enumColumns = this.getProperties().getProperty(com.mine.tool.orm.mybatis.generator.plugin.EnumTypeStatusPlugin.PRO_ENUM_COLUMNS);
             // 如果有局部配置，则附加上去
-            String tableEnumColumns = introspectedTable.getTableConfigurationProperty(com.itfsw.mybatis.generator.plugins.EnumTypeStatusPlugin.PRO_ENUM_COLUMNS);
+            String tableEnumColumns = introspectedTable.getTableConfigurationProperty(com.mine.tool.orm.mybatis.generator.plugin.EnumTypeStatusPlugin.PRO_ENUM_COLUMNS);
             if (tableEnumColumns != null) {
                 enumColumns = enumColumns == null ? "" : (enumColumns + ",");
 
-                enumColumns += introspectedTable.getTableConfigurationProperty(com.itfsw.mybatis.generator.plugins.EnumTypeStatusPlugin.PRO_ENUM_COLUMNS);
+                enumColumns += introspectedTable.getTableConfigurationProperty(com.mine.tool.orm.mybatis.generator.plugin.EnumTypeStatusPlugin.PRO_ENUM_COLUMNS);
             }
 
             if (StringUtility.stringHasValue(enumColumns)) {
@@ -93,9 +93,9 @@ public class EnumTypeStatusPlugin extends BasePlugin implements ILogicalDeletePl
                                 this.enumColumns.put(column.getJavaProperty(), enumInfo);
                             }
                         } catch (EnumInfo.CannotParseException e) {
-                            warnings.add("itfsw:插件" + com.itfsw.mybatis.generator.plugins.EnumTypeStatusPlugin.class.getTypeName() + "没有找到column为" + enumColumnsStr.trim() + "对应格式的注释的字段！");
+                            warnings.add("itfsw:插件" + com.mine.tool.orm.mybatis.generator.plugin.EnumTypeStatusPlugin.class.getTypeName() + "没有找到column为" + enumColumnsStr.trim() + "对应格式的注释的字段！");
                         } catch (EnumInfo.NotSupportTypeException e) {
-                            warnings.add("itfsw:插件" + com.itfsw.mybatis.generator.plugins.EnumTypeStatusPlugin.class.getTypeName() + "找到column为" + enumColumnsStr.trim() + "对应Java类型不在支持范围内！");
+                            warnings.add("itfsw:插件" + com.mine.tool.orm.mybatis.generator.plugin.EnumTypeStatusPlugin.class.getTypeName() + "找到column为" + enumColumnsStr.trim() + "对应Java类型不在支持范围内！");
                         }
                     }
                 }

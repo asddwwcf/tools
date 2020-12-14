@@ -16,10 +16,10 @@
 
 package com.mine.tool.orm.mybatis.generator.plugin;
 
-import com.itfsw.mybatis.generator.plugins.utils.BasePlugin;
-import com.itfsw.mybatis.generator.plugins.utils.EnumModelType;
-import com.itfsw.mybatis.generator.plugins.utils.PluginTools;
-import com.itfsw.mybatis.generator.plugins.utils.hook.ILombokPluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.BasePlugin;
+import com.mine.tool.orm.mybatis.generator.utils.EnumModelType;
+import com.mine.tool.orm.mybatis.generator.utils.PluginTools;
+import com.mine.tool.orm.mybatis.generator.utils.hook.ILombokPluginHook;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.Plugin;
@@ -78,7 +78,7 @@ public class LombokPlugin extends BasePlugin {
         for (Object key : properties.keySet()) {
             String annotation = key.toString().trim();
             if (!(annotation.matches(LOMBOK_ANNOTATION.pattern()) || PRO_SUPPORT_SUPER_BUILDER_FOR_IDEA.equals(annotation))) {
-                warnings.add("itfsw:插件" + com.itfsw.mybatis.generator.plugins.LombokPlugin.class.getTypeName() + "不能识别的注解（" + annotation + "）！");
+                warnings.add("itfsw:插件" + com.mine.tool.orm.mybatis.generator.plugin.LombokPlugin.class.getTypeName() + "不能识别的注解（" + annotation + "）！");
                 return false;
             }
         }
@@ -240,8 +240,8 @@ public class LombokPlugin extends BasePlugin {
                         if (this.suportSuperBuilderForIdea) {
                             // TODO 兼容老版本
                             PluginConfiguration configuration = new PluginConfiguration();
-                            configuration.setConfigurationType(com.itfsw.mybatis.generator.plugins.ModelBuilderPlugin.class.getTypeName());
-                            com.itfsw.mybatis.generator.plugins.ModelBuilderPlugin modelBuilderPlugin = (com.itfsw.mybatis.generator.plugins.ModelBuilderPlugin) ObjectFactory.createPlugin(this.context, configuration);
+                            configuration.setConfigurationType(com.mine.tool.orm.mybatis.generator.plugin.ModelBuilderPlugin.class.getTypeName());
+                            com.mine.tool.orm.mybatis.generator.plugin.ModelBuilderPlugin modelBuilderPlugin = (com.mine.tool.orm.mybatis.generator.plugin.ModelBuilderPlugin) ObjectFactory.createPlugin(this.context, configuration);
                             switch (modelType) {
                                 case MODEL_PRIMARY_KEY:
                                     modelBuilderPlugin.modelPrimaryKeyBuilderClassGenerated(topLevelClass, introspectedTable);
@@ -281,7 +281,7 @@ public class LombokPlugin extends BasePlugin {
             } else if (LOMBOK_EXPERIMENTAL_FEATURES.contains(annotationName)) {
                 topLevelClass.addImportedType("lombok.experimental." + annotationName);
             } else {
-                this.warnings.add("itfsw:插件" + com.itfsw.mybatis.generator.plugins.LombokPlugin.class.getTypeName() + "没有找到注解（" + annotation + "）！");
+                this.warnings.add("itfsw:插件" + com.mine.tool.orm.mybatis.generator.plugin.LombokPlugin.class.getTypeName() + "没有找到注解（" + annotation + "）！");
                 return;
             }
             topLevelClass.addAnnotation(annotation);

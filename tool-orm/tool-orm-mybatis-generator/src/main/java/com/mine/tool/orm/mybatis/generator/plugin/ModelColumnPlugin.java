@@ -16,6 +16,11 @@
 
 package com.mine.tool.orm.mybatis.generator.plugin;
 
+import com.mine.tool.orm.mybatis.generator.utils.BasePlugin;
+import com.mine.tool.orm.mybatis.generator.utils.FormatTools;
+import com.mine.tool.orm.mybatis.generator.utils.JavaElementGeneratorTools;
+import com.mine.tool.orm.mybatis.generator.utils.PluginTools;
+import com.mine.tool.orm.mybatis.generator.utils.hook.IModelColumnPluginHook;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.*;

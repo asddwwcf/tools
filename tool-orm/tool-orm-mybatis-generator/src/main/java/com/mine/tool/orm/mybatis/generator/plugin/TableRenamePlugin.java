@@ -16,9 +16,9 @@
 
 package com.mine.tool.orm.mybatis.generator.plugin;
 
-import com.itfsw.mybatis.generator.plugins.utils.BasePlugin;
-import com.itfsw.mybatis.generator.plugins.utils.FormatTools;
-import com.itfsw.mybatis.generator.plugins.utils.IntrospectedTableTools;
+import com.mine.tool.orm.mybatis.generator.utils.BasePlugin;
+import com.mine.tool.orm.mybatis.generator.utils.FormatTools;
+import com.mine.tool.orm.mybatis.generator.utils.IntrospectedTableTools;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.config.TableConfiguration;
 

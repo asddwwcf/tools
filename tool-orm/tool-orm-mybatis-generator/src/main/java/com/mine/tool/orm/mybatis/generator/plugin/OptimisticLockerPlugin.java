@@ -16,18 +16,15 @@
 
 package com.mine.tool.orm.mybatis.generator.plugin;
 
-import com.itfsw.mybatis.generator.plugins.utils.*;
-import com.itfsw.mybatis.generator.plugins.utils.hook.ILogicalDeletePluginHook;
-import com.itfsw.mybatis.generator.plugins.utils.hook.IModelBuilderPluginHook;
-import com.itfsw.mybatis.generator.plugins.utils.hook.IOptimisticLockerPluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.*;
+import com.mine.tool.orm.mybatis.generator.utils.hook.ILogicalDeletePluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.hook.IModelBuilderPluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.hook.IOptimisticLockerPluginHook;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.Plugin;
 import org.mybatis.generator.api.dom.java.*;
-import org.mybatis.generator.api.dom.xml.Attribute;
-import org.mybatis.generator.api.dom.xml.Document;
-import org.mybatis.generator.api.dom.xml.TextElement;
-import org.mybatis.generator.api.dom.xml.XmlElement;
+import org.mybatis.generator.api.dom.xml.*;
 import org.mybatis.generator.codegen.mybatis3.ListUtilities;
 import org.mybatis.generator.codegen.mybatis3.MyBatis3FormattingUtilities;
 import org.mybatis.generator.internal.util.JavaBeansUtil;

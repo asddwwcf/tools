@@ -16,7 +16,7 @@
 
 package com.mine.tool.orm.mybatis.generator.utils;
 
-import com.itfsw.mybatis.generator.plugins.utils.hook.HookAggregator;
+import com.mine.tool.orm.mybatis.generator.utils.hook.HookAggregator;
 import org.mybatis.generator.config.Context;
 import org.mybatis.generator.config.PluginConfiguration;
 import org.slf4j.Logger;

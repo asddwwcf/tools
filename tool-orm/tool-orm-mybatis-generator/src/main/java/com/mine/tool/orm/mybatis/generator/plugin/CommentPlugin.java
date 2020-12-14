@@ -16,7 +16,7 @@
 
 package com.mine.tool.orm.mybatis.generator.plugin;
 
-import com.itfsw.mybatis.generator.plugins.utils.BasePlugin;
+import com.mine.tool.orm.mybatis.generator.utils.BasePlugin;
 
 import java.util.Properties;
 

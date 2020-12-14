@@ -16,9 +16,9 @@
 
 package com.mine.tool.orm.mybatis.generator.plugin;
 
-import com.itfsw.mybatis.generator.plugins.utils.*;
-import com.itfsw.mybatis.generator.plugins.utils.hook.ISelectOneByExamplePluginHook;
-import com.itfsw.mybatis.generator.plugins.utils.hook.ISelectSelectivePluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.*;
+import com.mine.tool.orm.mybatis.generator.utils.hook.ISelectOneByExamplePluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.hook.ISelectSelectivePluginHook;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;

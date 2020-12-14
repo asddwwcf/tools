@@ -16,10 +16,10 @@
 
 package com.mine.tool.orm.mybatis.generator.utils;
 
-import com.itfsw.mybatis.generator.plugins.CommentPlugin;
-import com.itfsw.mybatis.generator.plugins.utils.enhanced.TemplateCommentGenerator;
-import com.itfsw.mybatis.generator.plugins.utils.hook.HookAggregator;
-import com.itfsw.mybatis.generator.plugins.utils.hook.ITableConfigurationHook;
+import com.mine.tool.orm.mybatis.generator.plugin.CommentPlugin;
+import com.mine.tool.orm.mybatis.generator.utils.enhanced.TemplateCommentGenerator;
+import com.mine.tool.orm.mybatis.generator.utils.hook.HookAggregator;
+import com.mine.tool.orm.mybatis.generator.utils.hook.ITableConfigurationHook;
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;

@@ -16,8 +16,8 @@
 
 package com.mine.tool.orm.mybatis.generator.utils.hook;
 
-import com.itfsw.mybatis.generator.plugins.utils.BasePlugin;
-import com.itfsw.mybatis.generator.plugins.utils.BeanUtils;
+import com.mine.tool.orm.mybatis.generator.utils.BasePlugin;
+import com.mine.tool.orm.mybatis.generator.utils.BeanUtils;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.Plugin;

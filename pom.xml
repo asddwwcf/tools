@@ -20,7 +20,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring-cloud-netflix.version>2.1.0.RELEASE</spring-cloud-netflix.version>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
-        <mybatis.generator.version>1.4.0</mybatis.generator.version>
+        <mybatis.generator.version>1.3.7</mybatis.generator.version>
         <postpresql.version>9.1-901-1.jdbc4</postpresql.version>
         <mybatis.starter.version>2.0.1</mybatis.starter.version>
         <spring.version>2.0.3.RELEASE</spring.version>

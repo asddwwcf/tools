@@ -16,13 +16,13 @@
 
 package com.mine.tool.orm.mybatis.generator.plugin;
 
-import com.itfsw.mybatis.generator.plugins.utils.BasePlugin;
-import com.itfsw.mybatis.generator.plugins.utils.FormatTools;
-import com.itfsw.mybatis.generator.plugins.utils.JavaElementGeneratorTools;
-import com.itfsw.mybatis.generator.plugins.utils.PluginTools;
-import com.itfsw.mybatis.generator.plugins.utils.enhanced.InnerTypeFullyQualifiedJavaType;
-import com.itfsw.mybatis.generator.plugins.utils.hook.ILombokPluginHook;
-import com.itfsw.mybatis.generator.plugins.utils.hook.IModelBuilderPluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.BasePlugin;
+import com.mine.tool.orm.mybatis.generator.utils.FormatTools;
+import com.mine.tool.orm.mybatis.generator.utils.JavaElementGeneratorTools;
+import com.mine.tool.orm.mybatis.generator.utils.PluginTools;
+import com.mine.tool.orm.mybatis.generator.utils.enhanced.InnerTypeFullyQualifiedJavaType;
+import com.mine.tool.orm.mybatis.generator.utils.hook.ILombokPluginHook;
+import com.mine.tool.orm.mybatis.generator.utils.hook.IModelBuilderPluginHook;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.*;

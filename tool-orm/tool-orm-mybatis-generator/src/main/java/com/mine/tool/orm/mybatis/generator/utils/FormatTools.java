@@ -16,7 +16,7 @@
 
 package com.mine.tool.orm.mybatis.generator.utils;
 
-import com.itfsw.mybatis.generator.plugins.ModelColumnPlugin;
+import com.mine.tool.orm.mybatis.generator.plugin.ModelColumnPlugin;
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.*;

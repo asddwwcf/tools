@@ -1,10 +1,11 @@
 package com.mine.tool.orm.mybatis.generator.plugin;
 
-import com.itfsw.mybatis.generator.plugins.utils.BasePlugin;
-import com.itfsw.mybatis.generator.plugins.utils.FormatTools;
-import com.itfsw.mybatis.generator.plugins.utils.JavaElementGeneratorTools;
-import com.itfsw.mybatis.generator.plugins.utils.PluginTools;
-import com.itfsw.mybatis.generator.plugins.utils.enhanced.InnerInterfaceWrapperToInnerClass;
+
+import com.mine.tool.orm.mybatis.generator.utils.BasePlugin;
+import com.mine.tool.orm.mybatis.generator.utils.FormatTools;
+import com.mine.tool.orm.mybatis.generator.utils.JavaElementGeneratorTools;
+import com.mine.tool.orm.mybatis.generator.utils.PluginTools;
+import com.mine.tool.orm.mybatis.generator.utils.enhanced.InnerInterfaceWrapperToInnerClass;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.*;
@@ -273,8 +274,8 @@ public class ExampleEnhancedPlugin extends BasePlugin {
         );
         commentGenerator.addGeneralMethodComment(addMethod, introspectedTable);
         whenInterface.addMethod(addMethod);
-
-        InnerClass innerClassWrapper = new InnerInterfaceWrapperToInnerClass(whenInterface);
+        //todo
+        InnerClass innerClassWrapper = new InnerInterfaceWrapperToInnerClass((com.mine.tool.orm.mybatis.generator.utils.enhanced.InnerInterface) whenInterface);
         // 添加注释
         commentGenerator.addClassComment(innerClassWrapper, introspectedTable);
         topLevelClass.addInnerClass(innerClassWrapper);
@@ -339,10 +340,11 @@ public class ExampleEnhancedPlugin extends BasePlugin {
                 new Parameter(innerClass.getType(), "add")
         );
         commentGenerator.addGeneralMethodComment(addMethod, introspectedTable);
-        FormatTools.addMethodWithBestPosition(criteriaAddInterface, addMethod);
+        //todo
+        FormatTools.addMethodWithBestPosition((Interface) criteriaAddInterface, addMethod);
         logger.debug("itfsw(Example增强插件):" + topLevelClass.getType().getShortName() + "." + innerClass.getType().getShortName() + "." + criteriaAddInterface.getType().getShortName() + "增加方法add");
-
-        InnerClass innerClassWrapper = new InnerInterfaceWrapperToInnerClass(criteriaAddInterface);
+        //todo
+        InnerClass innerClassWrapper = new InnerInterfaceWrapperToInnerClass((com.mine.tool.orm.mybatis.generator.utils.enhanced.InnerInterface) criteriaAddInterface);
         // 添加注释
         commentGenerator.addClassComment(innerClassWrapper, introspectedTable);
         innerClass.addInnerClass(innerClassWrapper);
