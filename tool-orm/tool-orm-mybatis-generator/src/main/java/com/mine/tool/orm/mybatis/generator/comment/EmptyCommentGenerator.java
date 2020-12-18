@@ -1,4 +1,4 @@
-package com.mine.tool.orm.mybatis.generator.plugin;
+package com.mine.tool.orm.mybatis.generator.comment;
 
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.IntrospectedColumn;

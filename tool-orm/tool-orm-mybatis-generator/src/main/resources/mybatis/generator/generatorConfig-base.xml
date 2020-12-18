@@ -29,7 +29,7 @@
             <property name="allowMultiQueries" value="false"/>
         </plugin>
 
-        <commentGenerator type="com.jusfoun.demo.plugin.CommentGenerator">
+        <commentGenerator type="com.mine.tool.orm.mybatis.generator.comment.CommentGenerator">
             <property name="author" value="admin"/>
             <property name="dateFormat" value="yyyy/MM/dd"/>
         </commentGenerator>

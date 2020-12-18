@@ -1,5 +1,6 @@
-package com.mine.tool.orm.mybatis.generator.plugin;
+package com.mine.tool.orm.mybatis.generator.comment;
 
+import com.mine.tool.orm.mybatis.generator.comment.EmptyCommentGenerator;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.Field;
