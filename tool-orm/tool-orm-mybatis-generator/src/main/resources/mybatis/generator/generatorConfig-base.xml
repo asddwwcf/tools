@@ -46,18 +46,18 @@
         </javaTypeResolver>
 
         <!-- 生成模型的包名和位置 -->
-        <javaModelGenerator targetPackage="com.jusfoun.demo.model" targetProject="./src/main/java">
+        <javaModelGenerator targetPackage="com.mine.demo.model" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- 生成xml映射文件的包名和位置 -->
-        <sqlMapGenerator targetPackage="com.jusfoun.demo.mapper" targetProject="./src/main/resources">
+        <sqlMapGenerator targetPackage="com.mine.demo.mapper" targetProject="./src/main/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <!-- 生成mapper的包名和位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.jusfoun.demo.mapper" targetProject="./src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.mine.demo.mapper" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
