@@ -25,7 +25,6 @@ import java.util.*;
  * 功能 :
  * 1.借用Mybatis的xml组装可执行的SQL.
  * 2.将可执行的远程SQL,作为方法结果返回.
- * @author : Bruce(刘正航) 08:44 2019-09-05
  */
 @Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})})
 public class SqlJointInterceptor implements Interceptor {

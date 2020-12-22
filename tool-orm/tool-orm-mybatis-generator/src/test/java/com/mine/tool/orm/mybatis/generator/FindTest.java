@@ -34,7 +34,6 @@ import static org.junit.Assert.assertThat;
 /**
  * 功能 :
  *
- * @author : Bruce(刘正航) 22:00 2019-01-20
  */
 @Slf4j
 @EnableSQLFormat

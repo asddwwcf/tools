@@ -16,7 +16,6 @@ import java.util.Objects;
 /**
  * 功能 :
  *
- * @author : Bruce(刘正航) 00:36 2019-01-23
  */
 @SuppressWarnings("all")
 public class UpdateProvider {

@@ -11,7 +11,6 @@ import java.util.Map;
 /**
  * 功能 :
  *
- * @author : Bruce(刘正航) 00:45 2019-01-23
  */
 @SuppressWarnings("all")
 public class DeleteProvider {

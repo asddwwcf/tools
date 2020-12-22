@@ -1,4 +1,4 @@
-package com.mine.tool.orm.jdbc;
+package com.mine.tool.guava;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,11 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 功能 :
  *
  */
-@SpringBootApplication(scanBasePackages = {"com.mine.tool"})
-public class JdbcTemplateApplication {
+@SpringBootApplication
+public class GuavaRetryApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(JdbcTemplateApplication.class, args);
+        SpringApplication.run(GuavaRetryApplication.class, args);
     }
 
 }

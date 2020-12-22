@@ -14,7 +14,6 @@ import org.apache.ibatis.annotations.UpdateProvider;
  * 4.deleteBySQL(sql)
  * 5.markDeleteById(id)
  * 6.markDeleteById(id,mark)
- * @author : Bruce(刘正航) 21:19 2019-01-20
  */
 @SuppressWarnings("all")
 public interface DeleteMapper<T> {

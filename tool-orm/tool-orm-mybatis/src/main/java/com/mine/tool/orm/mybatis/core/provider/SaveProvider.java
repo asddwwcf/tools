@@ -19,7 +19,6 @@ import java.util.Objects;
  * 1.save(domain)
  * 2.saveAll(List<domain> domains)
  * 3.saveByColumn(sql)
- * @author : Bruce(刘正航) 00:33 2019-01-23
  */
 @SuppressWarnings("all")
 public class SaveProvider {

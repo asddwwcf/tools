@@ -13,6 +13,7 @@
     <modules>
         <module>tool-poi</module>
         <module>tool-orm</module>
+        <module>tool-retry</module>
     </modules>
 
     <properties>

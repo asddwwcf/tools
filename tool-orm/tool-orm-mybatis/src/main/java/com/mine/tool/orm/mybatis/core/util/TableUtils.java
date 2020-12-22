@@ -14,7 +14,6 @@ import java.util.Objects;
 /**
  * 功能 :
  * 表对象属性操作工具类
- * @author : Bruce(刘正航) 6:02 PM 2018/11/14
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TableUtils {

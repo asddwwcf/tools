@@ -5,7 +5,6 @@ import lombok.Getter;
 /**
  * 功能 :
  * orm异常码
- * @author : Bruce(刘正航) 21:44 2019-01-20
  */
 public enum SQLCode {
     //

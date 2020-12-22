@@ -23,7 +23,6 @@ import java.util.List;
  * 10.findTablesByCriteria(sql,CriteriaQuery)
  * 11.findsBySQL(sql)
  *
- * @author : Bruce(刘正航) 17:01 2019-01-20
  */
 @SuppressWarnings("all")
 public interface FindMapper<T> {

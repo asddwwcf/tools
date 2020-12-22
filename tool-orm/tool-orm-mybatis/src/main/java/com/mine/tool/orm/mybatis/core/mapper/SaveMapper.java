@@ -13,7 +13,6 @@ import java.util.List;
  * 1.save(domain)
  * 2.saveAll(List<domain> domains)
  * 3.saveBySQL(sql)
- * @author : Bruce(刘正航) 21:14 2019-01-20
  */
 @SuppressWarnings("all")
 public interface SaveMapper<T> {

@@ -13,7 +13,6 @@ import java.util.List;
  * 2.updateSelective(domain)
  * 3.updateAll(List<domain> domains)
  * 4.updateBySQL(sql)
- * @author : Bruce(刘正航) 21:15 2019-01-20
  */
 @SuppressWarnings("all")
 public interface UpdateMapper<T> {

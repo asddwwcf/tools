@@ -14,7 +14,6 @@ import java.util.Map;
 /**
  * 功能 :
  * 表对象属性缓存
- * @author : Bruce(刘正航) 6:02 PM 2018/11/14
  */
 public class DomainInfo {
 

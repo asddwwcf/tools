@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @author bruce(刘正航)
+ *
  */
 @Slf4j
 @RunWith(SpringRunner.class)

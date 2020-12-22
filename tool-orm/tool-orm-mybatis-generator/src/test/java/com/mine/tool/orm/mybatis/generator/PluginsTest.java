@@ -6,7 +6,6 @@ import org.mybatis.generator.api.ShellRunner;
 /**
  * 功能 : 
  *
- * @author : Bruce(刘正航) 09:03 2019-05-11
  */
 public class PluginsTest {
     @Test

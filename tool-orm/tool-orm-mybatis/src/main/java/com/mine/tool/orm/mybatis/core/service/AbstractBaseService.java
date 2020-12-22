@@ -10,7 +10,6 @@ import java.util.List;
 
 /**
  * 功能 :
- * @author : Bruce(刘正航) 7:20 下午 2020/1/1
  */
 @SuppressWarnings("all")
 public abstract class AbstractBaseService<T> implements BaseService<T>{

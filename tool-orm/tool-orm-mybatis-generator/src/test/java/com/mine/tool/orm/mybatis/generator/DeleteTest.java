@@ -13,7 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 /**
  * 功能 :
  *
- * @author : Bruce(刘正航) 22:00 2019-01-20
  */
 @Slf4j
 @RunWith(SpringRunner.class)

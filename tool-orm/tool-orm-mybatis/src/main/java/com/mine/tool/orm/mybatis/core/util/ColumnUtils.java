@@ -20,7 +20,6 @@ import java.util.regex.Pattern;
 /**
  * 功能 :
  * 数据库表字段工具类
- * @author : Bruce(刘正航) 6:02 PM 2018/11/14
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ColumnUtils {

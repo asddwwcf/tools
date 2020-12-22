@@ -27,7 +27,6 @@ import java.util.Objects;
  * 10.findsByCriteria(sql,CriteriaQuery)
  * 11.findsByCriteria(sql)
  *
- * @author : Bruce(刘正航) 17:01 2019-01-20
  */
 @SuppressWarnings("all")
 public class FindProvider {
