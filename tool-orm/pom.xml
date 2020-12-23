@@ -16,6 +16,5 @@
     </modules>
     <artifactId>tool-orm</artifactId>
     <name>${project.artifactId}</name>
-    <description>常用工具包-orm</description>
 
 </project>
