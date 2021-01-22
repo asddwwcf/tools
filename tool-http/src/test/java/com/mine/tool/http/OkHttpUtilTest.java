@@ -17,7 +17,7 @@ import java.io.IOException;
  * 功能 :
  */
 @Slf4j
-public class HttpTest {
+public class OkHttpUtilTest {
 
     @Test
     public void get() {
