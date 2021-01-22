@@ -1,9 +1,9 @@
 package com.mine.tool.orm.mybatis.generator.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.bruce.tool.logger.core.annotation.EnableSQLFormat;
-import com.bruce.tool.logger.core.format.DefaultSlf4jLogFilter;
-import com.bruce.tool.orm.mybatis.interceptor.SqlJointInterceptor;
+import com.mine.tool.logger.core.annotation.EnableSQLFormat;
+import com.mine.tool.logger.core.format.DefaultSlf4jLogFilter;
+import com.mine.tool.orm.mybatis.interceptor.SqlJointInterceptor;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.assertj.core.util.Lists;

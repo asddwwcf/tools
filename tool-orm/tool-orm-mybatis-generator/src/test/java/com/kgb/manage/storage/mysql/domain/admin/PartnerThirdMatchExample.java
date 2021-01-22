@@ -1,8 +1,8 @@
 package com.kgb.manage.storage.mysql.domain.admin;
 
-import com.bruce.tool.common.util.DateUtils;;
-import com.bruce.tool.orm.mybatis.core.query.Example;
-import com.bruce.tool.orm.mybatis.core.util.TableUtils;
+import com.mine.tool.common.util.DateUtils;;
+import com.mine.tool.orm.mybatis.core.query.Example;
+import com.mine.tool.orm.mybatis.core.util.TableUtils;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Date;;

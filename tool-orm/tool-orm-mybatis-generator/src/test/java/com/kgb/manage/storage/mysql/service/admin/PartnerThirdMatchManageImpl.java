@@ -1,7 +1,7 @@
 package com.kgb.manage.storage.mysql.service.admin;
 
-import com.bruce.tool.orm.mybatis.core.mapper.BaseMapper;
-import com.bruce.tool.orm.mybatis.core.service.AbstractBaseService;
+import com.mine.tool.orm.mybatis.core.mapper.BaseMapper;
+import com.mine.tool.orm.mybatis.core.service.AbstractBaseService;
 import com.kgb.manage.storage.mysql.domain.admin.PartnerThirdMatch;
 import com.kgb.manage.storage.mysql.mapper.admin.PartnerThirdMatchMapper;
 import org.springframework.beans.factory.annotation.Autowired;

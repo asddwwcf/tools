@@ -1,7 +1,7 @@
 package com.mine.tool.orm.mybatis.generator.domain;
 
-import com.bruce.tool.orm.mybatis.core.query.Example;
-import com.bruce.tool.orm.mybatis.core.util.TableUtils;
+import com.mine.tool.orm.mybatis.core.query.Example;
+import com.mine.tool.orm.mybatis.core.util.TableUtils;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;

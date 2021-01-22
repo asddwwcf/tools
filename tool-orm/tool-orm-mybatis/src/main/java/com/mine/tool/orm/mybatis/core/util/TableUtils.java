@@ -1,6 +1,6 @@
 package com.mine.tool.orm.mybatis.core.util;
 
-import com.bruce.tool.common.util.ClassUtils;
+import com.mine.tool.common.util.ClassUtils;
 import com.google.common.collect.Lists;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

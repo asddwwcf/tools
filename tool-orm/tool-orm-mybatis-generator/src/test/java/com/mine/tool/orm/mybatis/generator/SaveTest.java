@@ -1,9 +1,9 @@
 package com.mine.tool.orm.mybatis.generator;
 
-import com.bruce.tool.common.util.SpringBeanUtils;
-import com.bruce.tool.common.util.string.JsonUtils;
-//import com.bruce.tool.orm.mybatis.generator.domain.AdminMenu;
-//import com.bruce.tool.orm.mybatis.generator.mapper.AdminMenuMapper;
+import com.mine.tool.common.util.SpringBeanUtils;
+import com.mine.tool.common.util.string.JsonUtils;
+//import com.mine.tool.orm.mybatis.generator.domain.AdminMenu;
+//import com.mine.tool.orm.mybatis.generator.mapper.AdminMenuMapper;
 import io.jsonwebtoken.lang.Assert;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.runner.RunWith;

@@ -1,8 +1,8 @@
 package com.kgb.manage.storage.mysql.domain.admin;
 
-import com.bruce.tool.orm.mybatis.core.annotation.Column;
-import com.bruce.tool.orm.mybatis.core.annotation.Id;
-import com.bruce.tool.orm.mybatis.core.annotation.Table;
+import com.mine.tool.orm.mybatis.core.annotation.Column;
+import com.mine.tool.orm.mybatis.core.annotation.Id;
+import com.mine.tool.orm.mybatis.core.annotation.Table;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;

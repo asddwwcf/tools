@@ -1,7 +1,7 @@
 package com.mine.tool.orm.mybatis.generator.service;
 
-import com.bruce.tool.orm.mybatis.core.mapper.BaseMapper;
-import com.bruce.tool.orm.mybatis.core.service.AbstractBaseService;
+import com.mine.tool.orm.mybatis.core.mapper.BaseMapper;
+import com.mine.tool.orm.mybatis.core.service.AbstractBaseService;
 import com.mine.tool.orm.mybatis.generator.domain.RegionCopy;
 import com.mine.tool.orm.mybatis.generator.mapper.RegionCopyMapper;
 import org.springframework.beans.factory.annotation.Autowired;

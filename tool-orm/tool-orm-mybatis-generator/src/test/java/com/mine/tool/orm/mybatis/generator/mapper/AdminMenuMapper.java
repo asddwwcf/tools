@@ -1,7 +1,7 @@
 package com.mine.tool.orm.mybatis.generator.mapper;
 
-import com.bruce.tool.orm.mybatis.core.annotation.ReturnExecutableSQL;
-import com.bruce.tool.orm.mybatis.core.mapper.BaseMapper;
+import com.mine.tool.orm.mybatis.core.annotation.ReturnExecutableSQL;
+import com.mine.tool.orm.mybatis.core.mapper.BaseMapper;
 import com.mine.tool.orm.mybatis.generator.domain.AdminMenu;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

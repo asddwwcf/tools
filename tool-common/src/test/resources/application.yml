@@ -1,0 +1,12 @@
+logging:
+  filepath: logs
+  maxhistory: 50
+  maxfilesize: 64MB
+  logback:
+    level: debug
+  charset: UTF-8
+  all:
+    filename: common-all
+  error:
+    filename: common-error
+  config: classpath:logback-spring.xml

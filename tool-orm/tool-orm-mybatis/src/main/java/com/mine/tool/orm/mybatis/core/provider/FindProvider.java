@@ -1,7 +1,7 @@
 package com.mine.tool.orm.mybatis.core.provider;
 
-import com.bruce.tool.common.exception.BaseRuntimeException;
-import com.bruce.tool.common.util.string.StringUtils;
+import com.mine.tool.common.exception.BaseRuntimeException;
+import com.mine.tool.common.util.string.StringUtils;
 import com.mine.tool.orm.mybatis.core.constant.SQLCode;
 import com.mine.tool.orm.mybatis.core.exception.OrmNullException;
 import com.mine.tool.orm.mybatis.core.query.Example;

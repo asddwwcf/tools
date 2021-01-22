@@ -1,8 +1,8 @@
 package com.mine.tool.orm.mybatis.generator;
 
-import com.bruce.tool.common.util.DateUtils;
-import com.bruce.tool.common.util.SpringBeanUtils;
-import com.bruce.tool.common.util.string.JsonUtils;
+import com.mine.tool.common.util.DateUtils;
+import com.mine.tool.common.util.SpringBeanUtils;
+import com.mine.tool.common.util.string.JsonUtils;
 import io.jsonwebtoken.lang.Assert;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;

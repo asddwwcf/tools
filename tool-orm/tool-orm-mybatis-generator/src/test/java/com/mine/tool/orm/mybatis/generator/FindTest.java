@@ -1,10 +1,10 @@
 package com.mine.tool.orm.mybatis.generator;
 
-import com.bruce.tool.common.util.SpringBeanUtils;
-import com.bruce.tool.common.util.string.JsonUtils;
-import com.bruce.tool.logger.core.annotation.EnableSQLFormat;
-import com.bruce.tool.orm.mybatis.core.annotation.EnableReturnExecutableSQL;
-import com.bruce.tool.orm.mybatis.generator.domain.*;
+import com.mine.tool.common.util.SpringBeanUtils;
+import com.mine.tool.common.util.string.JsonUtils;
+import com.mine.tool.logger.core.annotation.EnableSQLFormat;
+import com.mine.tool.orm.mybatis.core.annotation.EnableReturnExecutableSQL;
+import com.mine.tool.orm.mybatis.generator.domain.*;
 import com.mine.tool.orm.mybatis.generator.mapper.AdminMenuMapper;
 import com.mine.tool.orm.mybatis.generator.service.AdminMenuService;
 import com.mine.tool.orm.mybatis.generator.service.AdminRoleService;
