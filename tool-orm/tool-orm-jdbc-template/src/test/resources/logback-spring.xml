@@ -51,7 +51,7 @@
 	</appender>
 
 	<logger name="org.springframework.data.redis" additivity="false" level="error"/>
-	<logger name="com.bruce.tool.orm.mybatis.generator" additivity="false" level="info"/>
+	<logger name="com.mine.tool.orm.mybatis.generator" additivity="false" level="info"/>
 	<!-- druid的sql打印日志-logger -->
 	<logger name="org.springframework.amqp.rabbit.listener" level="INFO" />
 	<logger name="org.springframework.jdbc.datasource" level="INFO" />

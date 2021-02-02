@@ -1,0 +1,18 @@
+mail:
+  host:
+  username:
+  password:
+  to:
+
+logging:
+  filepath: logs
+  maxhistory: 50
+  maxfilesize: 64MB
+  logback:
+    level: debug
+  charset: UTF-8
+  all:
+    filename: tool-email-all
+  error:
+    filename: tool-email-error
+  config: classpath:logback-spring.xml

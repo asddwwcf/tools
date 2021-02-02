@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 功能 :
  *
  */
-@SpringBootApplication(scanBasePackages = {"com.bruce.tool"})
+@SpringBootApplication(scanBasePackages = {"com.mine.tool"})
 public class MybatisApplication {
 
     public static void main(String[] args) {

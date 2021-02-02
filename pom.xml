@@ -15,6 +15,7 @@
         <module>tool-orm</module>
         <module>tool-retry</module>
         <module>tool-common</module>
+        <module>tool-email</module>
 
         <module>tool-http</module>
         <module>tool-captcha</module>

@@ -39,12 +39,12 @@
 1.maven依赖:
 ```
 <dependency>
-    <groupId>com.bruce.tool</groupId>
+    <groupId>com.mine.tool</groupId>
     <artifactId>tool-orm-mybatis</artifactId>
     <version>8.0.0.RELEASE</version>
 </dependency>
 <dependency>
-    <groupId>com.bruce.tool</groupId>
+    <groupId>com.mine.tool</groupId>
     <artifactId>tool-orm-mybatis-generator</artifactId>
     <version>8.0.0.RELEASE</version>
 </dependency>
@@ -130,10 +130,10 @@ domain.path=./src/test/java
 xmlmapper.path=./src/test/java
 service.path=./src/test/java
 
-dao.package=com.bruce.tool.orm.mybatis.generator.dao
-domain.package=com.bruce.tool.orm.mybatis.generator.domain
-xmlmapper.package=com.bruce.tool.orm.mybatis.generator.mapper
-service.package=com.bruce.tool.orm.mybatis.generator.service
+dao.package=com.mine.tool.orm.mybatis.generator.dao
+domain.package=com.mine.tool.orm.mybatis.generator.domain
+xmlmapper.package=com.mine.tool.orm.mybatis.generator.mapper
+service.package=com.mine.tool.orm.mybatis.generator.service
 
 db.name=root
 db.pwd=123456

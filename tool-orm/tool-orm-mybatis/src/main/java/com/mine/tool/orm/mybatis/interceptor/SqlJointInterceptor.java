@@ -1,6 +1,6 @@
 package com.mine.tool.orm.mybatis.interceptor;
 
-import com.bruce.tool.common.util.ClassUtils;
+import com.mine.tool.common.util.ClassUtils;
 import com.mine.tool.orm.mybatis.core.annotation.ReturnExecutableSQL;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;

@@ -1,6 +1,6 @@
 package com.mine.tool.orm.mybatis.core.exception;
 
-import com.bruce.tool.common.exception.BaseRuntimeException;
+import com.mine.tool.common.exception.BaseRuntimeException;
 import com.mine.tool.orm.mybatis.core.constant.SQLCode;
 
 /**

@@ -126,7 +126,7 @@ String result = Https.create().print(true)
                         .readTimeout(60).build())
                 .add("name","测试文件上传")
                 // 方式一: 文件
-                .addBody("file",new File("/Users/bruce/Desktop/test.xls"))
+                .addBody("file",new File("/Users/Desktop/test.xls"))
                 .upload();
 ```
 文件上传-字节数组方式:

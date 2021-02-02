@@ -38,7 +38,7 @@ public class OkHttpUtilTest {
         MultipartBody.Builder builder = new MultipartBody.Builder();
         builder.addFormDataPart("name", "测试文件上传");
 
-        File file = new File("/Users/bruce/Desktop/test.xls");
+        File file = new File("/Users/mine/Desktop/test.xls");
         if (file.exists()) {
             String TYPE = "application/octet-stream";
             RequestBody fileBody = RequestBody.create(MediaType.parse(TYPE), file);
@@ -61,7 +61,7 @@ public class OkHttpUtilTest {
      **/
     @Test
     public void upload() throws IOException {
-        File file = new File("/Users/bruce/Desktop/test.xls");
+        File file = new File("/Users/mine/Desktop/test.xls");
         if (!file.exists()) {
             return;
         }
@@ -80,7 +80,7 @@ public class OkHttpUtilTest {
                         .readTimeout(60).build())
                 .add("name", "测试文件上传")
                 // 方式一: 文件
-                .addBody("file", new File("/Users/bruce/Desktop/test.xls"))
+                .addBody("file", new File("/Users/mine/Desktop/test.xls"))
                 // 方式二: 字节数组
                 .addBody("upload", bos.toByteArray())
                 .upload();

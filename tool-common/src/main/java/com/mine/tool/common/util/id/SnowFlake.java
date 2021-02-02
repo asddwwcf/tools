@@ -104,7 +104,7 @@ public class SnowFlake {
     public static void main(String[] args) {
         SnowFlake snowFlake = new SnowFlake(2, 3);
         StopWatch watch = StopWatch.createStarted();
-        for (int i = 0; i < (1 << 12); i++) {
+        for (int i = 0; i < (1 << 13); i++) {
             System.out.println(snowFlake.nextId());
         }
         long time = watch.getTime(TimeUnit.MILLISECONDS);
