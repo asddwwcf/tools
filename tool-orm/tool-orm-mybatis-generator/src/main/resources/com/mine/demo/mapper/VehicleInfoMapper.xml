@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mine.demo.mapper.VehicleInfoMapper">
+  <resultMap id="BaseResultMap" type="com.mine.demo.model.VehicleInfo">
+    <id column="vid" jdbcType="VARCHAR" property="vid" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+    <result column="vehicle_brand" jdbcType="VARCHAR" property="vehicleBrand" />
+    <result column="mileage" jdbcType="DOUBLE" property="mileage" />
+    <result column="month" jdbcType="INTEGER" property="month" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    vid, customer_name, vehicle_brand, mileage, month
+  </sql>
+  <select id="selectByExample" parameterType="com.mine.demo.model.VehicleInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_vehicle_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_vehicle_info
+    where vid = #{vid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_vehicle_info
+    where vid = #{vid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mine.demo.model.VehicleInfo">
+    <selectKey keyProperty="vid" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tb_vehicle_info (customer_name, vehicle_brand, mileage, 
+      month)
+    values (#{customerName,jdbcType=VARCHAR}, #{vehicleBrand,jdbcType=VARCHAR}, #{mileage,jdbcType=DOUBLE}, 
+      #{month,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mine.demo.model.VehicleInfo">
+    <selectKey keyProperty="vid" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tb_vehicle_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerName != null">
+        customer_name,
+      </if>
+      <if test="vehicleBrand != null">
+        vehicle_brand,
+      </if>
+      <if test="mileage != null">
+        mileage,
+      </if>
+      <if test="month != null">
+        month,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleBrand != null">
+        #{vehicleBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="mileage != null">
+        #{mileage,jdbcType=DOUBLE},
+      </if>
+      <if test="month != null">
+        #{month,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_vehicle_info
+    <set>
+      <if test="record.vid != null">
+        vid = #{record.vid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerName != null">
+        customer_name = #{record.customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vehicleBrand != null">
+        vehicle_brand = #{record.vehicleBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mileage != null">
+        mileage = #{record.mileage,jdbcType=DOUBLE},
+      </if>
+      <if test="record.month != null">
+        month = #{record.month,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_vehicle_info
+    set vid = #{record.vid,jdbcType=VARCHAR},
+      customer_name = #{record.customerName,jdbcType=VARCHAR},
+      vehicle_brand = #{record.vehicleBrand,jdbcType=VARCHAR},
+      mileage = #{record.mileage,jdbcType=DOUBLE},
+      month = #{record.month,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mine.demo.model.VehicleInfo">
+    update tb_vehicle_info
+    <set>
+      <if test="customerName != null">
+        customer_name = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleBrand != null">
+        vehicle_brand = #{vehicleBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="mileage != null">
+        mileage = #{mileage,jdbcType=DOUBLE},
+      </if>
+      <if test="month != null">
+        month = #{month,jdbcType=INTEGER},
+      </if>
+    </set>
+    where vid = #{vid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mine.demo.model.VehicleInfo">
+    update tb_vehicle_info
+    set customer_name = #{customerName,jdbcType=VARCHAR},
+      vehicle_brand = #{vehicleBrand,jdbcType=VARCHAR},
+      mileage = #{mileage,jdbcType=DOUBLE},
+      month = #{month,jdbcType=INTEGER}
+    where vid = #{vid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectOneByExample" parameterType="com.mine.demo.model.VehicleInfoExample" resultMap="BaseResultMap">
+    select
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_vehicle_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    limit 1
+  </select>
+  <insert id="batchInsert" keyColumn="vid" keyProperty="vid" parameterType="map" useGeneratedKeys="true">
+    insert into tb_vehicle_info
+    (customer_name, vehicle_brand, mileage, month)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.customerName,jdbcType=VARCHAR}, #{item.vehicleBrand,jdbcType=VARCHAR}, #{item.mileage,jdbcType=DOUBLE}, 
+        #{item.month,jdbcType=INTEGER})
+    </foreach>
+  </insert>
+  <insert id="batchInsertSelective" keyColumn="vid" keyProperty="list.vid" parameterType="map" useGeneratedKeys="true">
+    insert into tb_vehicle_info (
+    <foreach collection="selective" item="column" separator=",">
+      ${column.escapedColumnName}
+    </foreach>
+    )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (
+      <foreach collection="selective" item="column" separator=",">
+        <if test="'customer_name'.toString() == column.value">
+          #{item.customerName,jdbcType=VARCHAR}
+        </if>
+        <if test="'vehicle_brand'.toString() == column.value">
+          #{item.vehicleBrand,jdbcType=VARCHAR}
+        </if>
+        <if test="'mileage'.toString() == column.value">
+          #{item.mileage,jdbcType=DOUBLE}
+        </if>
+        <if test="'month'.toString() == column.value">
+          #{item.month,jdbcType=INTEGER}
+        </if>
+      </foreach>
+      )
+    </foreach>
+  </insert>
+</mapper>

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry location="src/main/resources/mybatis/mysql-connector-java-5.1.21.jar"/>
+    <classPathEntry location="src/main/resources/mybatis/generator/mysql-connector-java-5.1.21.jar"/>
 
     <context id="Mysql2Tables" targetRuntime="MyBatis3">
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
@@ -35,10 +35,11 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/demo?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useInformationSchema=true"
-                        userId="root"
-                        password="123456">
-            <!--<property name="useInformationSchema" value="true"></property>-->
+                        connectionURL="jdbc:mysql://172.17.33.223:3306/volvo?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useInformationSchema=true"
+                        userId="dev"
+                        password="dev">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+<!--            <property name="useInformationSchema" value="true"></property>-->
         </jdbcConnection>
 
         <javaTypeResolver>
@@ -61,11 +62,11 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="demo" tableName="sys_user" domainObjectName="User"
+        <table schema="demo" tableName="tb_vehicle_info" domainObjectName="VehicleInfo"
                enableCountByExample="false" enableUpdateByExample="true"
                enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <generatedKey column="vid" sqlStatement="MySql" identity="true"/>
         </table>
 
     </context>

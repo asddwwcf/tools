@@ -95,7 +95,7 @@
                 <version>1.4.0</version>
                 <configuration>
                     <!-- 配置文件 -->
-                    <configurationFile>src/main/resources/mybatis/generatorConfig-base.xml</configurationFile>
+                    <configurationFile>src/main/resources/mybatis/generator/generatorConfig-base.xml</configurationFile>
                     <!-- 允许移动和修改 -->
                     <verbose>true</verbose>
                     <overwrite>true</overwrite>
@@ -115,6 +115,13 @@
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
                         <version>${mysql.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.mine</groupId>
+                        <artifactId>tool-orm-mybatis-generator</artifactId>
+                        <version>0.0.1-SNAPSHOT</version>
+                        <scope>system</scope>
+                        <systemPath>${basedir}/target/tool-orm-mybatis-generator-0.0.1-SNAPSHOT.jar</systemPath>
                     </dependency>
                 </dependencies>
             </plugin>
