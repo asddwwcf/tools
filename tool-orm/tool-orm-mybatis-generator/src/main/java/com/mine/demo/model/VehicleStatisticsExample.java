@@ -3,14 +3,14 @@ package com.mine.demo.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VehicleInfoExample {
+public class VehicleStatisticsExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public VehicleInfoExample() {
+    public VehicleStatisticsExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -44,12 +44,12 @@ public class VehicleInfoExample {
         return criteria;
     }
 
-    public VehicleInfoExample orderBy(String orderByClause) {
+    public VehicleStatisticsExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
         return this;
     }
 
-    public VehicleInfoExample orderBy(String ... orderByClauses) {
+    public VehicleStatisticsExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);
@@ -81,18 +81,18 @@ public class VehicleInfoExample {
     }
 
     public static Criteria newAndCreateCriteria() {
-        VehicleInfoExample example = new VehicleInfoExample();
+        VehicleStatisticsExample example = new VehicleStatisticsExample();
         return example.createCriteria();
     }
 
-    public VehicleInfoExample when(boolean condition, IExampleWhen then) {
+    public VehicleStatisticsExample when(boolean condition, IExampleWhen then) {
         if (condition) {
             then.example(this);
         }
         return this;
     }
 
-    public VehicleInfoExample when(boolean condition, IExampleWhen then, IExampleWhen otherwise) {
+    public VehicleStatisticsExample when(boolean condition, IExampleWhen then, IExampleWhen otherwise) {
         if (condition) {
             then.example(this);
         } else {
@@ -157,7 +157,7 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualToColumn(VehicleInfo.Column column) {
+        public Criteria andIdEqualToColumn(VehicleStatistics.Column column) {
             addCriterion(new StringBuilder("id = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -167,7 +167,7 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualToColumn(VehicleInfo.Column column) {
+        public Criteria andIdNotEqualToColumn(VehicleStatistics.Column column) {
             addCriterion(new StringBuilder("id <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -177,7 +177,7 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanColumn(VehicleInfo.Column column) {
+        public Criteria andIdGreaterThanColumn(VehicleStatistics.Column column) {
             addCriterion(new StringBuilder("id > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -187,7 +187,7 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualToColumn(VehicleInfo.Column column) {
+        public Criteria andIdGreaterThanOrEqualToColumn(VehicleStatistics.Column column) {
             addCriterion(new StringBuilder("id >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -197,7 +197,7 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanColumn(VehicleInfo.Column column) {
+        public Criteria andIdLessThanColumn(VehicleStatistics.Column column) {
             addCriterion(new StringBuilder("id < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -207,7 +207,7 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualToColumn(VehicleInfo.Column column) {
+        public Criteria andIdLessThanOrEqualToColumn(VehicleStatistics.Column column) {
             addCriterion(new StringBuilder("id <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -232,106 +232,6 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andVinIsNull() {
-            addCriterion("vin is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVinIsNotNull() {
-            addCriterion("vin is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVinEqualTo(String value) {
-            addCriterion("vin =", value, "vin");
-            return (Criteria) this;
-        }
-
-        public Criteria andVinEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("vin = ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andVinNotEqualTo(String value) {
-            addCriterion("vin <>", value, "vin");
-            return (Criteria) this;
-        }
-
-        public Criteria andVinNotEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("vin <> ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andVinGreaterThan(String value) {
-            addCriterion("vin >", value, "vin");
-            return (Criteria) this;
-        }
-
-        public Criteria andVinGreaterThanColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("vin > ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andVinGreaterThanOrEqualTo(String value) {
-            addCriterion("vin >=", value, "vin");
-            return (Criteria) this;
-        }
-
-        public Criteria andVinGreaterThanOrEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("vin >= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andVinLessThan(String value) {
-            addCriterion("vin <", value, "vin");
-            return (Criteria) this;
-        }
-
-        public Criteria andVinLessThanColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("vin < ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andVinLessThanOrEqualTo(String value) {
-            addCriterion("vin <=", value, "vin");
-            return (Criteria) this;
-        }
-
-        public Criteria andVinLessThanOrEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("vin <= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andVinLike(String value) {
-            addCriterion("vin like", value, "vin");
-            return (Criteria) this;
-        }
-
-        public Criteria andVinNotLike(String value) {
-            addCriterion("vin not like", value, "vin");
-            return (Criteria) this;
-        }
-
-        public Criteria andVinIn(List<String> values) {
-            addCriterion("vin in", values, "vin");
-            return (Criteria) this;
-        }
-
-        public Criteria andVinNotIn(List<String> values) {
-            addCriterion("vin not in", values, "vin");
-            return (Criteria) this;
-        }
-
-        public Criteria andVinBetween(String value1, String value2) {
-            addCriterion("vin between", value1, value2, "vin");
-            return (Criteria) this;
-        }
-
-        public Criteria andVinNotBetween(String value1, String value2) {
-            addCriterion("vin not between", value1, value2, "vin");
-            return (Criteria) this;
-        }
-
         public Criteria andCustomerNameIsNull() {
             addCriterion("customer_name is null");
             return (Criteria) this;
@@ -347,7 +247,7 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andCustomerNameEqualToColumn(VehicleInfo.Column column) {
+        public Criteria andCustomerNameEqualToColumn(VehicleStatistics.Column column) {
             addCriterion(new StringBuilder("customer_name = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -357,7 +257,7 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andCustomerNameNotEqualToColumn(VehicleInfo.Column column) {
+        public Criteria andCustomerNameNotEqualToColumn(VehicleStatistics.Column column) {
             addCriterion(new StringBuilder("customer_name <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -367,7 +267,7 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andCustomerNameGreaterThanColumn(VehicleInfo.Column column) {
+        public Criteria andCustomerNameGreaterThanColumn(VehicleStatistics.Column column) {
             addCriterion(new StringBuilder("customer_name > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -377,7 +277,7 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andCustomerNameGreaterThanOrEqualToColumn(VehicleInfo.Column column) {
+        public Criteria andCustomerNameGreaterThanOrEqualToColumn(VehicleStatistics.Column column) {
             addCriterion(new StringBuilder("customer_name >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -387,7 +287,7 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andCustomerNameLessThanColumn(VehicleInfo.Column column) {
+        public Criteria andCustomerNameLessThanColumn(VehicleStatistics.Column column) {
             addCriterion(new StringBuilder("customer_name < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -397,7 +297,7 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andCustomerNameLessThanOrEqualToColumn(VehicleInfo.Column column) {
+        public Criteria andCustomerNameLessThanOrEqualToColumn(VehicleStatistics.Column column) {
             addCriterion(new StringBuilder("customer_name <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -432,296 +332,296 @@ public class VehicleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandIsNull() {
-            addCriterion("vehicle_brand is null");
+        public Criteria andAmountIsNull() {
+            addCriterion("amount is null");
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandIsNotNull() {
-            addCriterion("vehicle_brand is not null");
+        public Criteria andAmountIsNotNull() {
+            addCriterion("amount is not null");
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandEqualTo(String value) {
-            addCriterion("vehicle_brand =", value, "vehicleBrand");
+        public Criteria andAmountEqualTo(Integer value) {
+            addCriterion("amount =", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("vehicle_brand = ").append(column.getEscapedColumnName()).toString());
+        public Criteria andAmountEqualToColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("amount = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandNotEqualTo(String value) {
-            addCriterion("vehicle_brand <>", value, "vehicleBrand");
+        public Criteria andAmountNotEqualTo(Integer value) {
+            addCriterion("amount <>", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandNotEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("vehicle_brand <> ").append(column.getEscapedColumnName()).toString());
+        public Criteria andAmountNotEqualToColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("amount <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandGreaterThan(String value) {
-            addCriterion("vehicle_brand >", value, "vehicleBrand");
+        public Criteria andAmountGreaterThan(Integer value) {
+            addCriterion("amount >", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandGreaterThanColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("vehicle_brand > ").append(column.getEscapedColumnName()).toString());
+        public Criteria andAmountGreaterThanColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("amount > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandGreaterThanOrEqualTo(String value) {
-            addCriterion("vehicle_brand >=", value, "vehicleBrand");
+        public Criteria andAmountGreaterThanOrEqualTo(Integer value) {
+            addCriterion("amount >=", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandGreaterThanOrEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("vehicle_brand >= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andAmountGreaterThanOrEqualToColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("amount >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandLessThan(String value) {
-            addCriterion("vehicle_brand <", value, "vehicleBrand");
+        public Criteria andAmountLessThan(Integer value) {
+            addCriterion("amount <", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandLessThanColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("vehicle_brand < ").append(column.getEscapedColumnName()).toString());
+        public Criteria andAmountLessThanColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("amount < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandLessThanOrEqualTo(String value) {
-            addCriterion("vehicle_brand <=", value, "vehicleBrand");
+        public Criteria andAmountLessThanOrEqualTo(Integer value) {
+            addCriterion("amount <=", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandLessThanOrEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("vehicle_brand <= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andAmountLessThanOrEqualToColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("amount <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandLike(String value) {
-            addCriterion("vehicle_brand like", value, "vehicleBrand");
+        public Criteria andAmountIn(List<Integer> values) {
+            addCriterion("amount in", values, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandNotLike(String value) {
-            addCriterion("vehicle_brand not like", value, "vehicleBrand");
+        public Criteria andAmountNotIn(List<Integer> values) {
+            addCriterion("amount not in", values, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandIn(List<String> values) {
-            addCriterion("vehicle_brand in", values, "vehicleBrand");
+        public Criteria andAmountBetween(Integer value1, Integer value2) {
+            addCriterion("amount between", value1, value2, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandNotIn(List<String> values) {
-            addCriterion("vehicle_brand not in", values, "vehicleBrand");
+        public Criteria andAmountNotBetween(Integer value1, Integer value2) {
+            addCriterion("amount not between", value1, value2, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandBetween(String value1, String value2) {
-            addCriterion("vehicle_brand between", value1, value2, "vehicleBrand");
+        public Criteria andBrandDistributionIsNull() {
+            addCriterion("brand_distribution is null");
             return (Criteria) this;
         }
 
-        public Criteria andVehicleBrandNotBetween(String value1, String value2) {
-            addCriterion("vehicle_brand not between", value1, value2, "vehicleBrand");
+        public Criteria andBrandDistributionIsNotNull() {
+            addCriterion("brand_distribution is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMileageIsNull() {
-            addCriterion("mileage is null");
+        public Criteria andBrandDistributionEqualTo(String value) {
+            addCriterion("brand_distribution =", value, "brandDistribution");
             return (Criteria) this;
         }
 
-        public Criteria andMileageIsNotNull() {
-            addCriterion("mileage is not null");
+        public Criteria andBrandDistributionEqualToColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("brand_distribution = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMileageEqualTo(Double value) {
-            addCriterion("mileage =", value, "mileage");
+        public Criteria andBrandDistributionNotEqualTo(String value) {
+            addCriterion("brand_distribution <>", value, "brandDistribution");
             return (Criteria) this;
         }
 
-        public Criteria andMileageEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("mileage = ").append(column.getEscapedColumnName()).toString());
+        public Criteria andBrandDistributionNotEqualToColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("brand_distribution <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMileageNotEqualTo(Double value) {
-            addCriterion("mileage <>", value, "mileage");
+        public Criteria andBrandDistributionGreaterThan(String value) {
+            addCriterion("brand_distribution >", value, "brandDistribution");
             return (Criteria) this;
         }
 
-        public Criteria andMileageNotEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("mileage <> ").append(column.getEscapedColumnName()).toString());
+        public Criteria andBrandDistributionGreaterThanColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("brand_distribution > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMileageGreaterThan(Double value) {
-            addCriterion("mileage >", value, "mileage");
+        public Criteria andBrandDistributionGreaterThanOrEqualTo(String value) {
+            addCriterion("brand_distribution >=", value, "brandDistribution");
             return (Criteria) this;
         }
 
-        public Criteria andMileageGreaterThanColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("mileage > ").append(column.getEscapedColumnName()).toString());
+        public Criteria andBrandDistributionGreaterThanOrEqualToColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("brand_distribution >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMileageGreaterThanOrEqualTo(Double value) {
-            addCriterion("mileage >=", value, "mileage");
+        public Criteria andBrandDistributionLessThan(String value) {
+            addCriterion("brand_distribution <", value, "brandDistribution");
             return (Criteria) this;
         }
 
-        public Criteria andMileageGreaterThanOrEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("mileage >= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andBrandDistributionLessThanColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("brand_distribution < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMileageLessThan(Double value) {
-            addCriterion("mileage <", value, "mileage");
+        public Criteria andBrandDistributionLessThanOrEqualTo(String value) {
+            addCriterion("brand_distribution <=", value, "brandDistribution");
             return (Criteria) this;
         }
 
-        public Criteria andMileageLessThanColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("mileage < ").append(column.getEscapedColumnName()).toString());
+        public Criteria andBrandDistributionLessThanOrEqualToColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("brand_distribution <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMileageLessThanOrEqualTo(Double value) {
-            addCriterion("mileage <=", value, "mileage");
+        public Criteria andBrandDistributionLike(String value) {
+            addCriterion("brand_distribution like", value, "brandDistribution");
             return (Criteria) this;
         }
 
-        public Criteria andMileageLessThanOrEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("mileage <= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andBrandDistributionNotLike(String value) {
+            addCriterion("brand_distribution not like", value, "brandDistribution");
             return (Criteria) this;
         }
 
-        public Criteria andMileageIn(List<Double> values) {
-            addCriterion("mileage in", values, "mileage");
+        public Criteria andBrandDistributionIn(List<String> values) {
+            addCriterion("brand_distribution in", values, "brandDistribution");
             return (Criteria) this;
         }
 
-        public Criteria andMileageNotIn(List<Double> values) {
-            addCriterion("mileage not in", values, "mileage");
+        public Criteria andBrandDistributionNotIn(List<String> values) {
+            addCriterion("brand_distribution not in", values, "brandDistribution");
             return (Criteria) this;
         }
 
-        public Criteria andMileageBetween(Double value1, Double value2) {
-            addCriterion("mileage between", value1, value2, "mileage");
+        public Criteria andBrandDistributionBetween(String value1, String value2) {
+            addCriterion("brand_distribution between", value1, value2, "brandDistribution");
             return (Criteria) this;
         }
 
-        public Criteria andMileageNotBetween(Double value1, Double value2) {
-            addCriterion("mileage not between", value1, value2, "mileage");
+        public Criteria andBrandDistributionNotBetween(String value1, String value2) {
+            addCriterion("brand_distribution not between", value1, value2, "brandDistribution");
             return (Criteria) this;
         }
 
-        public Criteria andMonthIsNull() {
-            addCriterion("month is null");
+        public Criteria andRangeConditionIsNull() {
+            addCriterion("range_condition is null");
             return (Criteria) this;
         }
 
-        public Criteria andMonthIsNotNull() {
-            addCriterion("month is not null");
+        public Criteria andRangeConditionIsNotNull() {
+            addCriterion("range_condition is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMonthEqualTo(Integer value) {
-            addCriterion("month =", value, "month");
+        public Criteria andRangeConditionEqualTo(Integer value) {
+            addCriterion("range_condition =", value, "rangeCondition");
             return (Criteria) this;
         }
 
-        public Criteria andMonthEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("month = ").append(column.getEscapedColumnName()).toString());
+        public Criteria andRangeConditionEqualToColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("range_condition = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMonthNotEqualTo(Integer value) {
-            addCriterion("month <>", value, "month");
+        public Criteria andRangeConditionNotEqualTo(Integer value) {
+            addCriterion("range_condition <>", value, "rangeCondition");
             return (Criteria) this;
         }
 
-        public Criteria andMonthNotEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("month <> ").append(column.getEscapedColumnName()).toString());
+        public Criteria andRangeConditionNotEqualToColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("range_condition <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMonthGreaterThan(Integer value) {
-            addCriterion("month >", value, "month");
+        public Criteria andRangeConditionGreaterThan(Integer value) {
+            addCriterion("range_condition >", value, "rangeCondition");
             return (Criteria) this;
         }
 
-        public Criteria andMonthGreaterThanColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("month > ").append(column.getEscapedColumnName()).toString());
+        public Criteria andRangeConditionGreaterThanColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("range_condition > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMonthGreaterThanOrEqualTo(Integer value) {
-            addCriterion("month >=", value, "month");
+        public Criteria andRangeConditionGreaterThanOrEqualTo(Integer value) {
+            addCriterion("range_condition >=", value, "rangeCondition");
             return (Criteria) this;
         }
 
-        public Criteria andMonthGreaterThanOrEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("month >= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andRangeConditionGreaterThanOrEqualToColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("range_condition >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMonthLessThan(Integer value) {
-            addCriterion("month <", value, "month");
+        public Criteria andRangeConditionLessThan(Integer value) {
+            addCriterion("range_condition <", value, "rangeCondition");
             return (Criteria) this;
         }
 
-        public Criteria andMonthLessThanColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("month < ").append(column.getEscapedColumnName()).toString());
+        public Criteria andRangeConditionLessThanColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("range_condition < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMonthLessThanOrEqualTo(Integer value) {
-            addCriterion("month <=", value, "month");
+        public Criteria andRangeConditionLessThanOrEqualTo(Integer value) {
+            addCriterion("range_condition <=", value, "rangeCondition");
             return (Criteria) this;
         }
 
-        public Criteria andMonthLessThanOrEqualToColumn(VehicleInfo.Column column) {
-            addCriterion(new StringBuilder("month <= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andRangeConditionLessThanOrEqualToColumn(VehicleStatistics.Column column) {
+            addCriterion(new StringBuilder("range_condition <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMonthIn(List<Integer> values) {
-            addCriterion("month in", values, "month");
+        public Criteria andRangeConditionIn(List<Integer> values) {
+            addCriterion("range_condition in", values, "rangeCondition");
             return (Criteria) this;
         }
 
-        public Criteria andMonthNotIn(List<Integer> values) {
-            addCriterion("month not in", values, "month");
+        public Criteria andRangeConditionNotIn(List<Integer> values) {
+            addCriterion("range_condition not in", values, "rangeCondition");
             return (Criteria) this;
         }
 
-        public Criteria andMonthBetween(Integer value1, Integer value2) {
-            addCriterion("month between", value1, value2, "month");
+        public Criteria andRangeConditionBetween(Integer value1, Integer value2) {
+            addCriterion("range_condition between", value1, value2, "rangeCondition");
             return (Criteria) this;
         }
 
-        public Criteria andMonthNotBetween(Integer value1, Integer value2) {
-            addCriterion("month not between", value1, value2, "month");
+        public Criteria andRangeConditionNotBetween(Integer value1, Integer value2) {
+            addCriterion("range_condition not between", value1, value2, "rangeCondition");
             return (Criteria) this;
         }
     }
 
     public static class Criteria extends GeneratedCriteria {
-        private VehicleInfoExample example;
+        private VehicleStatisticsExample example;
 
-        protected Criteria(VehicleInfoExample example) {
+        protected Criteria(VehicleStatisticsExample example) {
             super();
             this.example = example;
         }
 
-        public VehicleInfoExample example() {
+        public VehicleStatisticsExample example() {
             return this.example;
         }
 
@@ -846,6 +746,6 @@ public class VehicleInfoExample {
     }
 
     public interface IExampleWhen {
-        void example(com.mine.demo.model.VehicleInfoExample example);
+        void example(com.mine.demo.model.VehicleStatisticsExample example);
     }
 }

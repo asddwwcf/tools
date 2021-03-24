@@ -62,11 +62,18 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="demo" tableName="tb_vehicle_info" domainObjectName="VehicleInfo"
+        <table schema="volvo" tableName="tb_vehicle_info" domainObjectName="VehicleInfo"
                enableCountByExample="false" enableUpdateByExample="true"
                enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false">
-            <generatedKey column="vid" sqlStatement="MySql" identity="true"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table schema="volvo" tableName="tb_vehicle_statistics" domainObjectName="VehicleStatistics"
+               enableCountByExample="false" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
     </context>

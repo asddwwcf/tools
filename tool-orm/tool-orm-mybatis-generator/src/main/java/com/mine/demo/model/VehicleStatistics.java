@@ -9,16 +9,11 @@ import java.util.Arrays;
  * @author admin
  * @date 2021/02/27
  */
-public class VehicleInfo implements Serializable {
+public class VehicleStatistics implements Serializable {
     /**
      * 
      */
     private Long id;
-
-    /**
-     * 车架号
-     */
-    private String vin;
 
     /**
      * 客户名称
@@ -26,19 +21,19 @@ public class VehicleInfo implements Serializable {
     private String customerName;
 
     /**
-     * 车辆品牌
+     * 数量
      */
-    private String vehicleBrand;
+    private Integer amount;
 
     /**
-     * 里程数
+     * 车辆品牌分布
      */
-    private Double mileage;
+    private String brandDistribution;
 
     /**
-     * 月份
+     * 里程区间条件
      */
-    private Integer month;
+    private Integer rangeCondition;
 
     private static final long serialVersionUID = 1L;
 
@@ -50,14 +45,6 @@ public class VehicleInfo implements Serializable {
         this.id = id;
     }
 
-    public String getVin() {
-        return vin;
-    }
-
-    public void setVin(String vin) {
-        this.vin = vin == null ? null : vin.trim();
-    }
-
     public String getCustomerName() {
         return customerName;
     }
@@ -66,28 +53,28 @@ public class VehicleInfo implements Serializable {
         this.customerName = customerName == null ? null : customerName.trim();
     }
 
-    public String getVehicleBrand() {
-        return vehicleBrand;
+    public Integer getAmount() {
+        return amount;
     }
 
-    public void setVehicleBrand(String vehicleBrand) {
-        this.vehicleBrand = vehicleBrand == null ? null : vehicleBrand.trim();
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
-    public Double getMileage() {
-        return mileage;
+    public String getBrandDistribution() {
+        return brandDistribution;
     }
 
-    public void setMileage(Double mileage) {
-        this.mileage = mileage;
+    public void setBrandDistribution(String brandDistribution) {
+        this.brandDistribution = brandDistribution == null ? null : brandDistribution.trim();
     }
 
-    public Integer getMonth() {
-        return month;
+    public Integer getRangeCondition() {
+        return rangeCondition;
     }
 
-    public void setMonth(Integer month) {
-        this.month = month;
+    public void setRangeCondition(Integer rangeCondition) {
+        this.rangeCondition = rangeCondition;
     }
 
     @Override
@@ -101,13 +88,12 @@ public class VehicleInfo implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        VehicleInfo other = (VehicleInfo) that;
+        VehicleStatistics other = (VehicleStatistics) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getVin() == null ? other.getVin() == null : this.getVin().equals(other.getVin()))
             && (this.getCustomerName() == null ? other.getCustomerName() == null : this.getCustomerName().equals(other.getCustomerName()))
-            && (this.getVehicleBrand() == null ? other.getVehicleBrand() == null : this.getVehicleBrand().equals(other.getVehicleBrand()))
-            && (this.getMileage() == null ? other.getMileage() == null : this.getMileage().equals(other.getMileage()))
-            && (this.getMonth() == null ? other.getMonth() == null : this.getMonth().equals(other.getMonth()));
+            && (this.getAmount() == null ? other.getAmount() == null : this.getAmount().equals(other.getAmount()))
+            && (this.getBrandDistribution() == null ? other.getBrandDistribution() == null : this.getBrandDistribution().equals(other.getBrandDistribution()))
+            && (this.getRangeCondition() == null ? other.getRangeCondition() == null : this.getRangeCondition().equals(other.getRangeCondition()));
     }
 
     @Override
@@ -115,11 +101,10 @@ public class VehicleInfo implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getVin() == null) ? 0 : getVin().hashCode());
         result = prime * result + ((getCustomerName() == null) ? 0 : getCustomerName().hashCode());
-        result = prime * result + ((getVehicleBrand() == null) ? 0 : getVehicleBrand().hashCode());
-        result = prime * result + ((getMileage() == null) ? 0 : getMileage().hashCode());
-        result = prime * result + ((getMonth() == null) ? 0 : getMonth().hashCode());
+        result = prime * result + ((getAmount() == null) ? 0 : getAmount().hashCode());
+        result = prime * result + ((getBrandDistribution() == null) ? 0 : getBrandDistribution().hashCode());
+        result = prime * result + ((getRangeCondition() == null) ? 0 : getRangeCondition().hashCode());
         return result;
     }
 
@@ -130,34 +115,28 @@ public class VehicleInfo implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", vin=").append(vin);
         sb.append(", customerName=").append(customerName);
-        sb.append(", vehicleBrand=").append(vehicleBrand);
-        sb.append(", mileage=").append(mileage);
-        sb.append(", month=").append(month);
+        sb.append(", amount=").append(amount);
+        sb.append(", brandDistribution=").append(brandDistribution);
+        sb.append(", rangeCondition=").append(rangeCondition);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }
 
-    public static VehicleInfo.Builder builder() {
-        return new VehicleInfo.Builder();
+    public static VehicleStatistics.Builder builder() {
+        return new VehicleStatistics.Builder();
     }
 
     public static class Builder {
-        private VehicleInfo obj;
+        private VehicleStatistics obj;
 
         public Builder() {
-            this.obj = new VehicleInfo();
+            this.obj = new VehicleStatistics();
         }
 
         public Builder id(Long id) {
             obj.setId(id);
-            return this;
-        }
-
-        public Builder vin(String vin) {
-            obj.setVin(vin);
             return this;
         }
 
@@ -166,33 +145,32 @@ public class VehicleInfo implements Serializable {
             return this;
         }
 
-        public Builder vehicleBrand(String vehicleBrand) {
-            obj.setVehicleBrand(vehicleBrand);
+        public Builder amount(Integer amount) {
+            obj.setAmount(amount);
             return this;
         }
 
-        public Builder mileage(Double mileage) {
-            obj.setMileage(mileage);
+        public Builder brandDistribution(String brandDistribution) {
+            obj.setBrandDistribution(brandDistribution);
             return this;
         }
 
-        public Builder month(Integer month) {
-            obj.setMonth(month);
+        public Builder rangeCondition(Integer rangeCondition) {
+            obj.setRangeCondition(rangeCondition);
             return this;
         }
 
-        public VehicleInfo build() {
+        public VehicleStatistics build() {
             return this.obj;
         }
     }
 
     public enum Column {
         id("id", "id", "BIGINT", false),
-        vin("vin", "vin", "VARCHAR", false),
         customerName("customer_name", "customerName", "VARCHAR", false),
-        vehicleBrand("vehicle_brand", "vehicleBrand", "VARCHAR", false),
-        mileage("mileage", "mileage", "DOUBLE", false),
-        month("month", "month", "INTEGER", false);
+        amount("amount", "amount", "INTEGER", false),
+        brandDistribution("brand_distribution", "brandDistribution", "VARCHAR", false),
+        rangeCondition("range_condition", "rangeCondition", "INTEGER", false);
 
         private static final String BEGINNING_DELIMITER = "\"";
 

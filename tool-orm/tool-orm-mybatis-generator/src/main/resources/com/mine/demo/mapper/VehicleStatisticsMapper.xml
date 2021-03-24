@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mine.demo.mapper.VehicleInfoMapper">
-  <resultMap id="BaseResultMap" type="com.mine.demo.model.VehicleInfo">
+<mapper namespace="com.mine.demo.mapper.VehicleStatisticsMapper">
+  <resultMap id="BaseResultMap" type="com.mine.demo.model.VehicleStatistics">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="vin" jdbcType="VARCHAR" property="vin" />
     <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
-    <result column="vehicle_brand" jdbcType="VARCHAR" property="vehicleBrand" />
-    <result column="mileage" jdbcType="DOUBLE" property="mileage" />
-    <result column="month" jdbcType="INTEGER" property="month" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="brand_distribution" jdbcType="VARCHAR" property="brandDistribution" />
+    <result column="range_condition" jdbcType="INTEGER" property="rangeCondition" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,16 +67,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, vin, customer_name, vehicle_brand, mileage, month
+    id, customer_name, amount, brand_distribution, range_condition
   </sql>
-  <select id="selectByExample" parameterType="com.mine.demo.model.VehicleInfoExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.mine.demo.model.VehicleStatisticsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     'false' as QUERYID,
     <include refid="Base_Column_List" />
-    from tb_vehicle_info
+    from tb_vehicle_statistics
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -88,82 +87,79 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from tb_vehicle_info
+    from tb_vehicle_statistics
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from tb_vehicle_info
+    delete from tb_vehicle_statistics
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mine.demo.model.VehicleInfo">
+  <delete id="deleteByExample" parameterType="com.mine.demo.model.VehicleStatisticsExample">
+    delete from tb_vehicle_statistics
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mine.demo.model.VehicleStatistics">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into tb_vehicle_info (vin, customer_name, vehicle_brand, 
-      mileage, month)
-    values (#{vin,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, #{vehicleBrand,jdbcType=VARCHAR}, 
-      #{mileage,jdbcType=DOUBLE}, #{month,jdbcType=INTEGER})
+    insert into tb_vehicle_statistics (customer_name, amount, brand_distribution, 
+      range_condition)
+    values (#{customerName,jdbcType=VARCHAR}, #{amount,jdbcType=INTEGER}, #{brandDistribution,jdbcType=VARCHAR}, 
+      #{rangeCondition,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.mine.demo.model.VehicleInfo">
+  <insert id="insertSelective" parameterType="com.mine.demo.model.VehicleStatistics">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into tb_vehicle_info
+    insert into tb_vehicle_statistics
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="vin != null">
-        vin,
-      </if>
       <if test="customerName != null">
         customer_name,
       </if>
-      <if test="vehicleBrand != null">
-        vehicle_brand,
+      <if test="amount != null">
+        amount,
       </if>
-      <if test="mileage != null">
-        mileage,
+      <if test="brandDistribution != null">
+        brand_distribution,
       </if>
-      <if test="month != null">
-        month,
+      <if test="rangeCondition != null">
+        range_condition,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="vin != null">
-        #{vin,jdbcType=VARCHAR},
-      </if>
       <if test="customerName != null">
         #{customerName,jdbcType=VARCHAR},
       </if>
-      <if test="vehicleBrand != null">
-        #{vehicleBrand,jdbcType=VARCHAR},
+      <if test="amount != null">
+        #{amount,jdbcType=INTEGER},
       </if>
-      <if test="mileage != null">
-        #{mileage,jdbcType=DOUBLE},
+      <if test="brandDistribution != null">
+        #{brandDistribution,jdbcType=VARCHAR},
       </if>
-      <if test="month != null">
-        #{month,jdbcType=INTEGER},
+      <if test="rangeCondition != null">
+        #{rangeCondition,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
   <update id="updateByExampleSelective" parameterType="map">
-    update tb_vehicle_info
+    update tb_vehicle_statistics
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.vin != null">
-        vin = #{record.vin,jdbcType=VARCHAR},
-      </if>
       <if test="record.customerName != null">
         customer_name = #{record.customerName,jdbcType=VARCHAR},
       </if>
-      <if test="record.vehicleBrand != null">
-        vehicle_brand = #{record.vehicleBrand,jdbcType=VARCHAR},
+      <if test="record.amount != null">
+        amount = #{record.amount,jdbcType=INTEGER},
       </if>
-      <if test="record.mileage != null">
-        mileage = #{record.mileage,jdbcType=DOUBLE},
+      <if test="record.brandDistribution != null">
+        brand_distribution = #{record.brandDistribution,jdbcType=VARCHAR},
       </if>
-      <if test="record.month != null">
-        month = #{record.month,jdbcType=INTEGER},
+      <if test="record.rangeCondition != null">
+        range_condition = #{record.rangeCondition,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -171,52 +167,47 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update tb_vehicle_info
+    update tb_vehicle_statistics
     set id = #{record.id,jdbcType=BIGINT},
-      vin = #{record.vin,jdbcType=VARCHAR},
       customer_name = #{record.customerName,jdbcType=VARCHAR},
-      vehicle_brand = #{record.vehicleBrand,jdbcType=VARCHAR},
-      mileage = #{record.mileage,jdbcType=DOUBLE},
-      month = #{record.month,jdbcType=INTEGER}
+      amount = #{record.amount,jdbcType=INTEGER},
+      brand_distribution = #{record.brandDistribution,jdbcType=VARCHAR},
+      range_condition = #{record.rangeCondition,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mine.demo.model.VehicleInfo">
-    update tb_vehicle_info
+  <update id="updateByPrimaryKeySelective" parameterType="com.mine.demo.model.VehicleStatistics">
+    update tb_vehicle_statistics
     <set>
-      <if test="vin != null">
-        vin = #{vin,jdbcType=VARCHAR},
-      </if>
       <if test="customerName != null">
         customer_name = #{customerName,jdbcType=VARCHAR},
       </if>
-      <if test="vehicleBrand != null">
-        vehicle_brand = #{vehicleBrand,jdbcType=VARCHAR},
+      <if test="amount != null">
+        amount = #{amount,jdbcType=INTEGER},
       </if>
-      <if test="mileage != null">
-        mileage = #{mileage,jdbcType=DOUBLE},
+      <if test="brandDistribution != null">
+        brand_distribution = #{brandDistribution,jdbcType=VARCHAR},
       </if>
-      <if test="month != null">
-        month = #{month,jdbcType=INTEGER},
+      <if test="rangeCondition != null">
+        range_condition = #{rangeCondition,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mine.demo.model.VehicleInfo">
-    update tb_vehicle_info
-    set vin = #{vin,jdbcType=VARCHAR},
-      customer_name = #{customerName,jdbcType=VARCHAR},
-      vehicle_brand = #{vehicleBrand,jdbcType=VARCHAR},
-      mileage = #{mileage,jdbcType=DOUBLE},
-      month = #{month,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.mine.demo.model.VehicleStatistics">
+    update tb_vehicle_statistics
+    set customer_name = #{customerName,jdbcType=VARCHAR},
+      amount = #{amount,jdbcType=INTEGER},
+      brand_distribution = #{brandDistribution,jdbcType=VARCHAR},
+      range_condition = #{rangeCondition,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <select id="selectOneByExample" parameterType="com.mine.demo.model.VehicleInfoExample" resultMap="BaseResultMap">
+  <select id="selectOneByExample" parameterType="com.mine.demo.model.VehicleStatisticsExample" resultMap="BaseResultMap">
     select
     'false' as QUERYID,
     <include refid="Base_Column_List" />
-    from tb_vehicle_info
+    from tb_vehicle_statistics
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -226,16 +217,16 @@
     limit 1
   </select>
   <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
-    insert into tb_vehicle_info
-    (vin, customer_name, vehicle_brand, mileage, month)
+    insert into tb_vehicle_statistics
+    (customer_name, amount, brand_distribution, range_condition)
     values
     <foreach collection="list" item="item" separator=",">
-      (#{item.vin,jdbcType=VARCHAR}, #{item.customerName,jdbcType=VARCHAR}, #{item.vehicleBrand,jdbcType=VARCHAR}, 
-        #{item.mileage,jdbcType=DOUBLE}, #{item.month,jdbcType=INTEGER})
+      (#{item.customerName,jdbcType=VARCHAR}, #{item.amount,jdbcType=INTEGER}, #{item.brandDistribution,jdbcType=VARCHAR}, 
+        #{item.rangeCondition,jdbcType=INTEGER})
     </foreach>
   </insert>
   <insert id="batchInsertSelective" keyColumn="id" keyProperty="list.id" parameterType="map" useGeneratedKeys="true">
-    insert into tb_vehicle_info (
+    insert into tb_vehicle_statistics (
     <foreach collection="selective" item="column" separator=",">
       ${column.escapedColumnName}
     </foreach>
@@ -244,20 +235,17 @@
     <foreach collection="list" item="item" separator=",">
       (
       <foreach collection="selective" item="column" separator=",">
-        <if test="'vin'.toString() == column.value">
-          #{item.vin,jdbcType=VARCHAR}
-        </if>
         <if test="'customer_name'.toString() == column.value">
           #{item.customerName,jdbcType=VARCHAR}
         </if>
-        <if test="'vehicle_brand'.toString() == column.value">
-          #{item.vehicleBrand,jdbcType=VARCHAR}
+        <if test="'amount'.toString() == column.value">
+          #{item.amount,jdbcType=INTEGER}
         </if>
-        <if test="'mileage'.toString() == column.value">
-          #{item.mileage,jdbcType=DOUBLE}
+        <if test="'brand_distribution'.toString() == column.value">
+          #{item.brandDistribution,jdbcType=VARCHAR}
         </if>
-        <if test="'month'.toString() == column.value">
-          #{item.month,jdbcType=INTEGER}
+        <if test="'range_condition'.toString() == column.value">
+          #{item.rangeCondition,jdbcType=INTEGER}
         </if>
       </foreach>
       )

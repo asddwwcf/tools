@@ -16,9 +16,11 @@
         <module>tool-retry</module>
         <module>tool-common</module>
         <module>tool-email</module>
-
+        <!-- 未完成 -->
         <module>tool-http</module>
         <module>tool-captcha</module>
+        <!-- shardingjdbc -->
+        <module>spring-boot-shardingjdbc</module>
     </modules>
 
     <properties>

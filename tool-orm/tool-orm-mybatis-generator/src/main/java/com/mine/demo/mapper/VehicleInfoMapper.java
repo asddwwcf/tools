@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface VehicleInfoMapper {
-    int deleteByPrimaryKey(String vid);
+    int deleteByPrimaryKey(Long id);
 
     int insert(VehicleInfo record);
 
@@ -16,7 +16,7 @@ public interface VehicleInfoMapper {
 
     List<VehicleInfo> selectByExample(VehicleInfoExample example);
 
-    VehicleInfo selectByPrimaryKey(String vid);
+    VehicleInfo selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") VehicleInfo record, @Param("example") VehicleInfoExample example);
 
