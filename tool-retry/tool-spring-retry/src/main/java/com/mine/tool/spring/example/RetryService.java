@@ -9,8 +9,8 @@ import org.springframework.retry.annotation.Retryable;
 public class RetryService {
 
     /**
-     * value：指定处理的异常类
-     * maxAttempts：最大重试次数。默认3次
+     * value：指定发生的异常进行重试
+     * maxAttempts：尝试次数 , 默认3 . 注意该值包含第一次正常执行的次数 , 即失败之后重新尝试2次 , 一共执行3次
      * backoff： 重试等待策略。默认使用@Backoff注解
      * include：指定处理的异常类和value一样，默认为空，当exclude也为空时，默认所有异常
      * exclude：指定异常不处理，默认空，当include也为空时，默认所有异常
@@ -25,6 +25,7 @@ public class RetryService {
 
     /**
      * @Recover 用于@Retryable重试失败后处理方法
+     * 返回参数需要和@Retryable相同
      */
     @Recover
     public boolean retryMethod(RuntimeException ex, String requestId) {
