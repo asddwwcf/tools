@@ -17,7 +17,7 @@ public class SpringMessageUtils {
     private static ResourceBundleMessageSource resourceBundleMessageSource;
 
     static{
-        resourceBundleMessageSource = SpringBeanUtils.getBean(ResourceBundleMessageSource.class);
+        resourceBundleMessageSource = SpringBeanUtil.getBean(ResourceBundleMessageSource.class);
     }
 
     /**默认获取中文的错误信息**/

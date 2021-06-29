@@ -1,57 +1,35 @@
 package com.mine.tool.common.util;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.BeanWrapperImpl;
 
-/**
- * 功能 :
- * 全局获取spring容器对象
- */
-@Slf4j
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+import java.util.HashSet;
+import java.util.Set;
+
 public class SpringBeanUtils {
 
-    private static ApplicationContext applicationContext;
-
-    public static void setApplicationContext(ApplicationContext applicationContext){
-        SpringBeanUtils.applicationContext = applicationContext;
+    /**
+     * 基于Spring BeanUtils属性拷贝,忽略null值
+     * @param source 源
+     * @param target 目标
+     */
+    public static void copyPropertiesIgnoreNull(Object source, Object target){
+        BeanUtils.copyProperties(source, target, getNullPropertyNames(source));
     }
 
-    /**获取applicationContext**/
-    public static ApplicationContext getApplicationContext() {
-        return applicationContext;
-    }
-
-    /**通过name获取 Bean.**/
-    public static Object getBean(String name){
-        try {
-            return getApplicationContext().getBean(name);
-        } catch (BeansException e) {
-            log.error("{}",e.getMessage(),e);
+    public static String[] getNullPropertyNames(Object source) {
+        final BeanWrapper src = new BeanWrapperImpl(source);
+        java.beans.PropertyDescriptor[] pds = src.getPropertyDescriptors();
+        Set<String> emptyNames = new HashSet();
+        for(java.beans.PropertyDescriptor pd : pds) {
+            Object srcValue = src.getPropertyValue(pd.getName());
+            if (srcValue == null) {
+                emptyNames.add(pd.getName());
+            }
         }
-        return null;
+        String[] result = new String[emptyNames.size()];
+        return emptyNames.toArray(result);
     }
 
-    /**通过class获取Bean.**/
-    public static <T> T getBean(Class<T> clazz){
-        try {
-            return getApplicationContext().getBean(clazz);
-        } catch (BeansException e) {
-            log.error("{}",e.getMessage(),e);
-        }
-        return null;
-    }
-
-    /**通过name,以及Clazz返回指定的Bean**/
-    public static <T> T getBean(String name,Class<T> clazz){
-        try {
-            return getApplicationContext().getBean(name, clazz);
-        } catch (BeansException e) {
-            log.error("{}",e.getMessage(),e);
-        }
-        return null;
-    }
 }

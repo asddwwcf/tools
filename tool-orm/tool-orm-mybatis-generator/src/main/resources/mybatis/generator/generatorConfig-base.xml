@@ -35,7 +35,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://172.17.33.223:3306/volvo?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useInformationSchema=true"
+                        connectionURL="jdbc:mysql://172.17.33.223:3306/dfmc2?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useInformationSchema=true"
                         userId="dev"
                         password="dev">
             <property name="nullCatalogMeansCurrent" value="true"/>
@@ -62,18 +62,20 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="volvo" tableName="tb_vehicle_info" domainObjectName="VehicleInfo"
+        <table schema="volvo" tableName="tb_vehicle_network_info" domainObjectName="VehicleNetworkInfo"
                enableCountByExample="false" enableUpdateByExample="true"
                enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <columnOverride column="status" javaType="java.lang.Integer"/>
         </table>
 
-        <table schema="volvo" tableName="tb_vehicle_statistics" domainObjectName="VehicleStatistics"
+        <table schema="volvo" tableName="tb_vehicle_network_task" domainObjectName="VehicleNetworkTask"
                enableCountByExample="false" enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <columnOverride column="status" javaType="java.lang.Integer"/>
         </table>
 
     </context>

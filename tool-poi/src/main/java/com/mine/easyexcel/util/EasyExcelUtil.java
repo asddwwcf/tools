@@ -105,6 +105,8 @@ public class EasyExcelUtil {
     public static <T> void write(HttpServletResponse response, Class<T> clazz, List<T> data, String sheetName, String fileName) throws IOException {
         buildResponse(response, fileName);
         EasyExcel.write(response.getOutputStream(), clazz).sheet(sheetName).doWrite(data);
+        //自适应列宽
+        //EasyExcel.write(response.getOutputStream(), clazz).registerWriteHandler(new LongestMatchColumnWidthStyleStrategy()).sheet(sheetName).doWrite(data);
     }
 
     /**
